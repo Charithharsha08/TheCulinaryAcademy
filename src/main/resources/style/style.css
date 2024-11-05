@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+.rectangle{
+    -fx-background-color: rgba(213, 213, 252, 0.7);
+    -fx-background-radius: 10;
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);*/
+}
+.login-button{
+    -fx-background-color: green;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 20;
+}
+
+.button{
+    -fx-background-color: lightblue;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 12;
+
+}
+.update-button{
+    -fx-background-color: lightgreen;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 12;
+}
+
+.delete-button{
+    -fx-background-color: #fb5252;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 12;
+}
+
+.clear-button{
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 12;
+
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.managementSystem.controller.LoginFormController">
+   <children>
+      <Pane layoutX="777.0" layoutY="73.0" prefHeight="601.0" prefWidth="501.0" styleClass="rectangle" stylesheets="@../style/style.css">
+         <children>
+            <Label layoutX="98.0" layoutY="62.0" prefHeight="72.0" prefWidth="306.0" text="Welcome To &#10;The Culinary Academy" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtUserName" labelFloat="true" layoutX="68.0" layoutY="179.0" onKeyReleased="#OnKeyReleaserUsername" prefHeight="46.0" prefWidth="367.0" promptText="User Name">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXTextField>
+            <JFXTextField fx:id="txtPassword" labelFloat="true" layoutX="67.0" layoutY="304.0" onKeyReleased="#OnKeyReleaseTxtPassword" prefHeight="46.0" prefWidth="367.0" promptText="Password">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXTextField>
+            <JFXButton layoutX="68.0" layoutY="420.0" onAction="#btnLoginOnAction" prefHeight="46.0" prefWidth="367.0" styleClass="login-button" stylesheets="@../style/style.css" text="Login" />
+            <Label layoutX="111.0" layoutY="496.0" prefHeight="18.0" prefWidth="131.0" text="Don't have account ?" />
+            <Hyperlink fx:id="hyperLinkRegisterNow" layoutX="261.0" layoutY="493.0" onAction="#hyperLinkRegisterNowOnAction" text="Register Now" />
+         </children>
+      </Pane>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
+</AnchorPane>
