@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.managementSystem.controller.StudentManageController">
+   <children>
+      <Label layoutX="40.0" layoutY="46.0" prefHeight="78.0" prefWidth="419.0" text="Student Manage">
+         <font>
+            <Font name="Bookman Old Style" size="45.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtStudentId" labelFloat="true" layoutX="226.0" layoutY="237.0" onAction="#txtStudentIdOnAction" onKeyReleased="#txtStudentOnKeyRelease" prefHeight="25.0" prefWidth="276.0" promptText="Student Id" />
+      <JFXTextField fx:id="txtFee" labelFloat="true" layoutX="620.0" layoutY="345.0" onAction="#txtTelOnAction" onKeyReleased="#txtTelOnKeyRelease" prefHeight="25.0" prefWidth="276.0" promptText="Telephone Number" />
+      <JFXTextField fx:id="txtDuration" labelFloat="true" layoutX="226.0" layoutY="345.0" onAction="#txtAddressOnAction" prefHeight="25.0" prefWidth="276.0" promptText="Address" />
+      <JFXTextField fx:id="txtStudentName" labelFloat="true" layoutX="620.0" layoutY="237.0" onAction="#txtStudentNameOnAction" onKeyReleased="#txtStudentNameOnKeyRelease" prefHeight="25.0" prefWidth="276.0" promptText="Student Name" />
+      <TableView fx:id="lblProgram" layoutX="87.0" layoutY="461.0" prefHeight="259.0" prefWidth="1156.0">
+         <columns>
+            <TableColumn fx:id="colStudentId" prefWidth="75.0" text="Student Id" />
+            <TableColumn fx:id="colStudentName" prefWidth="570.0" text="Student Name" />
+            <TableColumn fx:id="colAddress" prefWidth="314.0" text="Address" />
+            <TableColumn fx:id="colTelephoneNumber" prefWidth="196.0" text="Telphone Number" />
+         </columns>
+      </TableView>
+      <JFXButton buttonType="RAISED" layoutX="938.0" layoutY="241.0" onAction="#btnStudentAddButtonOnAction" stylesheets="@../style/style.css" text="Add Student" />
+      <JFXButton buttonType="RAISED" layoutX="937.0" layoutY="345.0" onAction="#btnDeleleStudentOnAction" styleClass="delete-button" stylesheets="@../style/style.css" text="Delete Student" />
+      <JFXButton buttonType="RAISED" layoutX="1075.0" layoutY="345.0" onAction="#btnClearBtnOnAction" styleClass="clear-button" stylesheets="@../style/style.css" text="Clear Fields" />
+      <JFXButton buttonType="RAISED" layoutX="1074.0" layoutY="240.0" onAction="#btnUpdateStudentOnAction" styleClass="update-button" stylesheets="@../style/style.css" text="Update Student" />
+      <JFXTextField fx:id="txtSearchStudent" labelFloat="true" layoutX="800.0" layoutY="73.0" onAction="#txtStudentSearchOnAction" prefHeight="25.0" prefWidth="276.0" promptText="Search Student" />
+      <JFXButton buttonType="RAISED" layoutX="1126.0" layoutY="73.0" onAction="#btnSearchOnAction" stylesheets="@../style/style.css" text="Search" />
+   </children>
+</AnchorPane>
