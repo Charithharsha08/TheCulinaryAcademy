@@ -47,3 +47,10 @@
     -fx-font-size: 12;
 
 }
+.background{
+    -fx-background-image: url("../resources/images/login-background.jpg");
+    -fx-background-position: center center;
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-border-color: red;
+}

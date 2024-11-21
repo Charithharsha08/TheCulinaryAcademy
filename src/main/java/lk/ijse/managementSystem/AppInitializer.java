@@ -18,6 +18,8 @@ public class AppInitializer extends Application {
         try {
             stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/login-page.fxml"))));
 //            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setTitle("The Culinary Academy");
+            stage.centerOnScreen();
             stage.show();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
