@@ -3,24 +3,18 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 
 .rectangle{
-    -fx-background-color: rgba(213, 213, 252, 0.7);
+    -fx-background-color: rgba(133, 133, 136, 0.7);
     -fx-background-radius: 10;
+    -fx-opacity: 20;
     /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);*/
-}
-.login-button{
-    -fx-background-color: green;
-    -fx-background-radius: 10;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
-    -fx-font-family: "Open Sans";
-    -fx-font-size: 20;
+
 }
 
-.button{
-    -fx-background-color: lightblue;
+.login-button{
+    -fx-background-color: #372214;
     -fx-background-radius: 10;
+
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
-    -fx-font-family: "Open Sans";
-    -fx-font-size: 12;
 
 }
 .update-button{
@@ -53,4 +47,21 @@
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
     -fx-border-color: red;
+}
+.header{
+    -fx-background-color: #372214;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
+}
+
+.card{
+    -fx-background-color: #372214;
+    -fx-opacity: 0.7;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
+}
+.table-view .column-header-background{
+    -fx-background-color: #372214;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
 }

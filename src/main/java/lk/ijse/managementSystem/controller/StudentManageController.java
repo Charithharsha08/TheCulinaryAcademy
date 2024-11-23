@@ -22,13 +22,10 @@ public class StudentManageController {
     private TableColumn<?, ?> colTelephoneNumber;
 
     @FXML
-    private TableView<?> lblStudent;
+    private TableView<?> tblStudent;
 
     @FXML
-    private JFXTextField txtDuration;
-
-    @FXML
-    private JFXTextField txtFee;
+    private JFXTextField txtAddress;
 
     @FXML
     private JFXTextField txtSearchStudent;
@@ -38,6 +35,9 @@ public class StudentManageController {
 
     @FXML
     private JFXTextField txtStudentName;
+
+    @FXML
+    private JFXTextField txtTel;
 
     @FXML
     void btnClearBtnOnAction(ActionEvent event) {

@@ -89,16 +89,6 @@ public class PaymentManageController {
     }
 
     @FXML
-    void btnPrintOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btncreateNewCourceOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void btncreateNewCustomerOnAction(ActionEvent event) {
 
     }

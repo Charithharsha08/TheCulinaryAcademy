@@ -1,37 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.managementSystem.controller.LoginFormController">
+<AnchorPane fx:id="rootNode" prefHeight="770.0" prefWidth="1125.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.managementSystem.controller.LoginFormController">
    <children>
-      <Pane layoutX="777.0" layoutY="73.0" prefHeight="601.0" prefWidth="501.0" styleClass="rectangle" stylesheets="@../style/style.css">
+      <ImageView fitHeight="770.0" fitWidth="1460.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/login-background.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="55.0" layoutY="85.0" prefHeight="601.0" prefWidth="501.0" styleClass="rectangle" stylesheets="@../style/style.css">
          <children>
-            <Label layoutX="98.0" layoutY="62.0" prefHeight="72.0" prefWidth="306.0" text="Welcome To &#10;The Culinary Academy" textAlignment="CENTER">
+            <JFXTextField fx:id="txtUserName" focusColor="#e3e5eb" labelFloat="true" layoutX="68.0" layoutY="179.0" onAction="#txtUserNameOnAction" onKeyReleased="#OnKeyReleaserUsername" prefHeight="46.0" prefWidth="367.0" promptText="User Name :" unFocusColor="BLACK">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <font>
-                  <Font name="Arial Bold" size="28.0" />
+                  <Font name="Times New Roman Bold" size="18.0" />
                </font>
-            </Label>
-            <JFXTextField fx:id="txtUserName" labelFloat="true" layoutX="68.0" layoutY="179.0" onKeyReleased="#OnKeyReleaserUsername" prefHeight="46.0" prefWidth="367.0" promptText="User Name">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </JFXTextField>
-            <JFXTextField fx:id="txtPassword" labelFloat="true" layoutX="67.0" layoutY="304.0" onKeyReleased="#OnKeyReleaseTxtPassword" prefHeight="46.0" prefWidth="367.0" promptText="Password">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXTextField>
-            <JFXButton layoutX="68.0" layoutY="420.0" onAction="#btnLoginOnAction" prefHeight="46.0" prefWidth="367.0" styleClass="login-button" stylesheets="@../style/style.css" text="Login" />
-            <Label layoutX="111.0" layoutY="496.0" prefHeight="18.0" prefWidth="131.0" text="Don't have account ?" />
-            <Hyperlink fx:id="hyperLinkRegisterNow" layoutX="261.0" layoutY="493.0" onAction="#hyperLinkRegisterNowOnAction" text="Register Now" />
+            <Label layoutX="146.0" layoutY="482.0" prefHeight="18.0" prefWidth="131.0" text="Don't have account ?" />
+            <Hyperlink fx:id="hyperLinkRegisterNow" layoutX="264.0" layoutY="479.0" onAction="#hyperLinkRegisterNowOnAction" text="Register Now" textFill="#372214" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="143.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="73.0" layoutY="404.0" onAction="#btnLoginOnAction" prefHeight="56.0" prefWidth="367.0" styleClass="login-button" stylesheets="@../style/style.css" text="LOGIN" textFill="#eeeaea">
+               <font>
+                  <Font name="Arial Black" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXPasswordField fx:id="txtPassword" focusColor="#e3e5eb" labelFloat="true" layoutX="68.0" layoutY="282.0" onAction="#txtPasswordOnAction" prefHeight="46.0" prefWidth="368.0" promptText="Password :" unFocusColor="BLACK">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </JFXPasswordField>
          </children>
       </Pane>
    </children>
