@@ -4,6 +4,9 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
 import lk.ijse.managementSystem.model.User;
 import org.hibernate.Session;
@@ -38,13 +41,21 @@ public class RegisterFormController {
 
     @FXML
     void btnRegisterOnAction(ActionEvent event) {
-        User user = new User( txtUserName.getText(), txtPassword.getText(), txtJobRole.getText());
-        Session userSaveSession = SessionFactoryConfig.getInstance().getSession();
-        Transaction userSaveTransaction = userSaveSession.beginTransaction();
-        userSaveSession.save(user);
-        userSaveTransaction.commit();
-        userSaveSession.clear();
 
+        if (isValid()) {
+
+            User user = new User(txtUserName.getText(), txtPassword.getText(), txtJobRole.getText());
+            Session userSaveSession = SessionFactoryConfig.getInstance().getSession();
+            Transaction userSaveTransaction = userSaveSession.beginTransaction();
+            userSaveSession.save(user);
+            userSaveTransaction.commit();
+            userSaveSession.close();
+
+            new Alert(Alert.AlertType.INFORMATION, "User Saved").show();
+            Window window = btnRegister.getScene().getWindow();
+            Stage stage = (Stage) window;
+            stage.close();
+        }
     }
 
 
@@ -64,5 +75,14 @@ public class RegisterFormController {
     }
 
     public void txtJobRoleOnAction(ActionEvent actionEvent) {
+    }
+    public  boolean isValid(){
+        if(txtUserId.getText().isEmpty() || txtUserName.getText().isEmpty() || txtPassword.getText().isEmpty() || txtJobRole.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR, "Please fill all the fields").show();
+            return false;
+        }
+       else {
+            return true;
+        }
     }
 }

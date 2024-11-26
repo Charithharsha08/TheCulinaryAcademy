@@ -7,10 +7,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-
+@lombok.AllArgsConstructor
+@lombok.Data
+@lombok.NoArgsConstructor
 
 @Entity
 @Table(name = "student")
@@ -18,7 +17,7 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "student_id")
-    private int id;
+    private String id;
 
     @Column(name = "student_name")
     private String name;
@@ -35,5 +34,7 @@ public class Student {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_name")
     private User user;
+
+
 
 }

@@ -1,12 +1,21 @@
 package lk.ijse.managementSystem.controller;
 
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import lk.ijse.managementSystem.config.SessionFactoryConfig;
+import lk.ijse.managementSystem.model.Student;
+import lk.ijse.managementSystem.model.tableModel.StudentTm;
+import org.hibernate.Session;
+
+import java.util.List;
 
 public class StudentManageController {
 
@@ -23,7 +32,7 @@ public class StudentManageController {
     private TableColumn<?, ?> colTelephoneNumber;
 
     @FXML
-    private TableView<?> tblStudent;
+    private TableView<StudentTm> tblStudent;
 
     @FXML
     private JFXTextField txtAddress;
@@ -42,6 +51,36 @@ public class StudentManageController {
 
     @FXML
     private JFXTextField txtTel;
+
+    private ObservableList<StudentTm> obList = FXCollections.observableArrayList();
+
+    public void initialize(){
+        setCellValueFactory();
+        loadStudentTable();
+    }
+
+    private void loadStudentTable() {
+        tblStudent.getItems().clear();
+        Session session = SessionFactoryConfig.getInstance().getSession();
+
+        List<Student> studentList = session.createQuery("FROM Student", Student.class).getResultList();
+        for (Student student : studentList) {
+            StudentTm studentTm = new StudentTm(
+                    student.getId(),
+                    student.getName(),
+                    student.getAddress(),
+                    student.getContact());
+            obList.addAll(studentTm);
+        }
+        tblStudent.setItems(obList);
+    }
+
+    private void setCellValueFactory() {
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        colStudentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("studentAddress"));
+        colTelephoneNumber.setCellValueFactory(new PropertyValueFactory<>("studentContact"));
+    }
 
     @FXML
     void btnClearBtnOnAction(ActionEvent event) {
@@ -66,9 +105,21 @@ public class StudentManageController {
 
     @FXML
     void btnStudentAddButtonOnAction(ActionEvent event) {
+        if (isValid()){
 
+            Session session = SessionFactoryConfig.getInstance().getSession();
+            Student student = new Student(
+                    txtStudentId.getText(),
+                    txtStudentName.getText(),
+                    txtAddress.getText(),
+                    txtTel.getText());
+            session.save(student);
+            session.beginTransaction().commit();
+            session.close();
+            loadStudentTable();
+            new Alert(Alert.AlertType.INFORMATION, "Student Added").show();
         }
-
+    }
     @FXML
     void btnUpdateStudentOnAction(ActionEvent event) {
 
@@ -123,5 +174,24 @@ public class StudentManageController {
     void txtTelOnKeyRelease(KeyEvent event) {
 
     }
+    private boolean isValid(){
+if (txtStudentId.getText() == null || txtStudentId.getText().trim().isEmpty()) {
+    new Alert(Alert.AlertType.WARNING, "Student Id can't be empty").show();
+    return false;
+}if (txtStudentName.getText() == null || txtStudentName.getText().trim().isEmpty()) {
+    new Alert(Alert.AlertType.WARNING, "Student Name can't be empty").show();
+    return false;
+}if (txtAddress.getText() == null || txtAddress.getText().trim().isEmpty()) {
+    new Alert(Alert.AlertType.WARNING, "Student Address can't be empty").show();
+    return false;
+}if (txtTel.getText() == null || txtTel.getText().trim().isEmpty()) {
+    new Alert(Alert.AlertType.WARNING, "Student Telephone can't be empty").show();
+    return false;
+}if (txtMail.getText() == null || txtMail.getText().trim().isEmpty()) {
+    new Alert(Alert.AlertType.WARNING, "Student Email can't be empty").show();
+    return false;
+}
+return true;
 
+    }
 }

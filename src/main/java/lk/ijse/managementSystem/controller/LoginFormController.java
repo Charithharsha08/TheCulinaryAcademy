@@ -13,6 +13,10 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.managementSystem.config.SessionFactoryConfig;
+import lk.ijse.managementSystem.model.User;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 
 import java.io.IOException;
 
@@ -40,20 +44,23 @@ public class LoginFormController {
 
     @FXML
     void btnLoginOnAction(ActionEvent event) {
-        AnchorPane pane = null;
-        try {
-            pane = FXMLLoader.load(this.getClass().getResource("/view/dashboard.fxml"));
-        } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+
+        if (checkCredentials()) {
+            AnchorPane pane = null;
+            try {
+                pane = FXMLLoader.load(this.getClass().getResource("/view/dashboard.fxml"));
+            } catch (IOException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+            }
+
+            Scene scene = new Scene(pane);
+
+            Stage stage = (Stage) this.rootNode.getScene().getWindow();
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.setTitle("Dashboard Form");
+
         }
-
-        Scene scene = new Scene(pane);
-
-        Stage stage = (Stage) this.rootNode.getScene().getWindow();
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Dashboard Form");
-
     }
 
     @FXML
@@ -77,12 +84,32 @@ public class LoginFormController {
 
     @FXML
     void txtPasswordOnAction(ActionEvent event) {
-
+    btnLoginOnAction(event);
     }
 
     @FXML
     void txtUserNameOnAction(ActionEvent event) {
-
+    txtPassword.requestFocus();
     }
 
+    public boolean checkCredentials(){
+        Session session = null;
+        try {
+         session = SessionFactoryConfig.getInstance().getSession();
+        User user = session.get(User.class,txtUserName.getText());
+        if (user != null && user.getPassword().equals(txtPassword.getText())) {
+            return true;
+        }else {
+            new Alert(Alert.AlertType.ERROR, "Invalid username or password").show();
+            return false;
+        }
+    }catch (HibernateException e){
+e.printStackTrace();
+}finally {
+            txtUserName.clear();
+            txtPassword.clear();
+            session.close();
+        }
+        return false;
+    }
 }
