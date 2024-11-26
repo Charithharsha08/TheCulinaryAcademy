@@ -10,11 +10,11 @@
 
 <AnchorPane fx:id="rootNode" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.managementSystem.controller.DashboardController">
    <children>
-      <VBox fx:id="sideBar" layoutX="-3.0" prefHeight="768.0" prefWidth="415.0" styleClass="rectangle" stylesheets="@../style/style.css">
+      <VBox fx:id="sideBar" layoutX="-3.0" prefHeight="768.0" prefWidth="369.0" styleClass="rectangle" stylesheets="@../style/style.css">
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="271.0" layoutX="112.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="150.0" fitWidth="271.0" layoutX="83.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/logo.png" />
                      </image>
@@ -22,6 +22,11 @@
                </children>
             </Pane>
             <JFXButton fx:id="btnHome" buttonType="RAISED" onAction="#BtnHomeOnAction" prefHeight="98.0" prefWidth="424.0" ripplerFill="#372214" text="HOME">
+               <font>
+                  <Font name="Times New Roman Bold" size="36.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnStudent" buttonType="RAISED" onAction="#BtnStudentOnAction" prefHeight="98.0" prefWidth="424.0" ripplerFill="#372214" text="STUDENT">
                <font>
                   <Font name="Times New Roman Bold" size="36.0" />
                </font>
@@ -43,6 +48,6 @@
             </JFXButton>
          </children>
       </VBox>
-      <AnchorPane fx:id="sidePane" layoutX="413.0" layoutY="-2.0" prefHeight="769.0" prefWidth="951.0" />
+      <AnchorPane fx:id="sidePane" layoutX="367.0" layoutY="-2.0" prefHeight="769.0" prefWidth="951.0" />
    </children>
 </AnchorPane>

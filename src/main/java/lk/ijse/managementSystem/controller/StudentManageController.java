@@ -3,6 +3,7 @@ package lk.ijse.managementSystem.controller;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.KeyEvent;
@@ -28,6 +29,9 @@ public class StudentManageController {
     private JFXTextField txtAddress;
 
     @FXML
+    private JFXTextField txtMail;
+
+    @FXML
     private JFXTextField txtSearchStudent;
 
     @FXML
@@ -41,6 +45,12 @@ public class StudentManageController {
 
     @FXML
     void btnClearBtnOnAction(ActionEvent event) {
+        txtAddress.clear();
+        txtMail.clear();
+        txtSearchStudent.clear();
+        txtStudentId.clear();
+        txtStudentName.clear();
+        txtTel.clear();
 
     }
 
@@ -57,7 +67,7 @@ public class StudentManageController {
     @FXML
     void btnStudentAddButtonOnAction(ActionEvent event) {
 
-    }
+        }
 
     @FXML
     void btnUpdateStudentOnAction(ActionEvent event) {
@@ -66,6 +76,16 @@ public class StudentManageController {
 
     @FXML
     void txtAddressOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void txtMailOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void txtMailOnKeyRelease(KeyEvent event) {
 
     }
 

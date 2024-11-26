@@ -7,15 +7,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.UserTable">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.managementSystem.controller.UserTableController">
    <children>
       <TableView fx:id="tblUsers" layoutX="35.0" layoutY="111.0" prefHeight="259.0" prefWidth="539.0">
         <columns>
           <TableColumn fx:id="colUserId" prefWidth="64.0" text="User Id " />
           <TableColumn fx:id="colUserName" prefWidth="127.0" text="User Name" />
-            <TableColumn fx:id="colName" prefWidth="87.0" text="Name" />
-            <TableColumn fx:id="colPassword" prefWidth="149.0" text="Password" />
-            <TableColumn fx:id="colAction" prefWidth="111.0" text="Action" />
+            <TableColumn fx:id="colPassword" prefWidth="101.0" text="Password" />
+            <TableColumn fx:id="colJobRole" prefWidth="143.0" text="Job Role" />
+            <TableColumn fx:id="colAction" prefWidth="103.0" text="Action" />
         </columns>
       </TableView>
       <Label layoutX="205.0" layoutY="26.0" prefHeight="40.0" prefWidth="184.0" text="User Table">
