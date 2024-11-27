@@ -276,7 +276,7 @@ return true;
 
     }
 
-    public void tblMouseClicedOnAction(MouseEvent mouseEvent) {
+    public void tblMouseClickedOnAction(MouseEvent mouseEvent) {
         btnClearBtnOnAction(null);
         StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
         Session session = SessionFactoryConfig.getInstance().getSession();

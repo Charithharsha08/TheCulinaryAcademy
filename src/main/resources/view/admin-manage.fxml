@@ -30,12 +30,11 @@
             <JFXButton buttonType="RAISED" layoutX="307.0" layoutY="23.0" onAction="#btnSearchOnAction" styleClass="login-button" stylesheets="@../style/style.css" text="Search" textFill="#f8f8f8" />
          </children>
       </Pane>
-      <TableView fx:id="tblAdmin" layoutX="45.0" layoutY="151.0" prefHeight="579.0" prefWidth="461.0">
+      <TableView fx:id="tblAdmin" layoutX="45.0" layoutY="151.0" onMouseClicked="#tblAdminMouseClick" prefHeight="579.0" prefWidth="461.0">
          <columns>
-            <TableColumn fx:id="colAdminId" prefWidth="66.76664352416992" text="Admin Id" />
             <TableColumn fx:id="colUsername" prefWidth="129.0" text="User Name" />
-            <TableColumn fx:id="colName" prefWidth="127.0" text="Name" />
-            <TableColumn fx:id="colPassword" prefWidth="137.0" text="Password" />
+            <TableColumn fx:id="colPassword" prefWidth="145.0" text="Password" />
+            <TableColumn fx:id="colJobRole" prefWidth="186.0" text="Job Role" />
          </columns>
       </TableView>
       <Pane layoutX="543.0" layoutY="594.0" prefHeight="135.0" prefWidth="399.0" styleClass="rectangle" stylesheets="@../style/style.css">
