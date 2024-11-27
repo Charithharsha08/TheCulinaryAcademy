@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -19,6 +20,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
+import java.util.Optional;
 
 public class StudentManageController {
 
@@ -63,6 +65,7 @@ public class StudentManageController {
 
     public void initialize(){
         txtStudentId.setVisible(false);
+        txtSearchStudent.setVisible(false);
         setCellValueFactory();
         loadStudentTable();
     }
@@ -92,31 +95,66 @@ public class StudentManageController {
 
     @FXML
     void btnClearBtnOnAction(ActionEvent event) {
+
+clearFields();
+    }
+
+    public void clearFields(){
         txtAddress.clear();
         txtMail.clear();
         txtSearchStudent.clear();
         txtStudentId.clear();
         txtStudentName.clear();
         txtTel.clear();
-
     }
 
     @FXML
     void btnDeleleStudentOnAction(ActionEvent event) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
+        Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this student?").showAndWait();
+        if (result.get() == ButtonType.OK) {
 
-        Student student = session.get(Student.class, selectedStudent.getStudentId() );
-        session.delete(student);
-        transaction.commit();
-        session.close();
-        new Alert(Alert.AlertType.INFORMATION, "Student Deleted").show();
-        loadStudentTable();
+            Session session = SessionFactoryConfig.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
+            StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
+
+            if (selectedStudent == null) {
+                new Alert(Alert.AlertType.WARNING, "No Student Selected").show();
+                return;
+            }
+
+            Student student = session.get(Student.class, selectedStudent.getStudentId());
+            session.delete(student);
+            transaction.commit();
+            session.close();
+            new Alert(Alert.AlertType.INFORMATION, "Student Deleted").show();
+            loadStudentTable();
+            clearFields();
+        }else {
+            new Alert(Alert.AlertType.INFORMATION, "Student Not Deleted").show();
+            clearFields();
+        }
     }
 
     @FXML
     void btnSearchOnAction(ActionEvent event) {
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction =session.beginTransaction();
+
+        Student student = session.get(Student.class, txtSearchStudent.getText() );
+
+        if (student == null || student.getId() == null) {
+            new Alert(Alert.AlertType.WARNING, "No Student Found").show();
+            return;
+        }
+
+        txtStudentId.setText(student.getId());
+        txtStudentName.setText(student.getName());
+        txtAddress.setText(student.getAddress());
+        txtMail.setText(student.getEmail());
+        txtTel.setText(student.getContact());
+
+        transaction.commit();
+        session.close();
 
     }
 
@@ -137,6 +175,7 @@ public class StudentManageController {
             session.beginTransaction().commit();
             session.close();
             loadStudentTable();
+            clearFields();
             new Alert(Alert.AlertType.INFORMATION, "Student Added").show();
         }
     }
@@ -146,16 +185,25 @@ public class StudentManageController {
         Transaction transaction = session.beginTransaction();
         StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
 
-        Student student = session.get(Student.class, selectedStudent.getStudentId() );
+        if (selectedStudent == null ) {
+            new Alert(Alert.AlertType.WARNING, "No Student Selected").show();
+           return ;
+        }
+        Student student = session.get(Student.class, selectedStudent.getStudentId()  );
         student.setName(txtStudentName.getText());
         student.setAddress(txtAddress.getText());
+        student.setEmail(txtMail.getText());
         student.setContact(txtTel.getText());
         session.update(student);
         transaction.commit();
         session.close();
         new Alert(Alert.AlertType.INFORMATION, "Student Updated").show();
         loadStudentTable();
+        clearFields();
+
     }
+
+
 
     @FXML
     void txtAddressOnAction(ActionEvent event) {
