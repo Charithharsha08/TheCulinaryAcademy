@@ -84,6 +84,7 @@ public class StudentManageController {
                     student.getContact());
             obList.addAll(studentTm);
         }
+        System.out.println(studentList.size());
         tblStudent.setItems(obList);
     }
 

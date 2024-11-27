@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="769.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.managementSystem.controller.HomePageController">
    <children>
@@ -13,6 +14,74 @@
             <Font name="Montserrat ExtraBold" size="44.0" />
          </font>
       </Label>
-      <Pane layoutX="82.0" layoutY="255.0" prefHeight="396.0" prefWidth="393.0" styleClass="card" stylesheets="@../style/style.css" />
+      <ImageView fitHeight="424.0" fitWidth="488.0" layoutX="448.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/chef-art.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="58.0" layoutY="240.0" text="Good ">
+         <font>
+            <Font name="Montserrat ExtraBold" size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDayStatus" layoutX="160.0" layoutY="239.0" prefHeight="34.0" prefWidth="245.0" text="Morning ! ! !">
+         <font>
+            <Font name="Montserrat ExtraBold" size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblUserName" layoutX="62.0" layoutY="296.0" prefHeight="34.0" prefWidth="126.0" text="Charith" textAlignment="RIGHT">
+         <font>
+            <Font name="Montserrat ExtraBold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="79.0" layoutY="347.0" prefHeight="72.0" prefWidth="256.0" text="All Active  &#10;">
+         <font>
+            <Font name="Montserrat ExtraBold" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="130.0" layoutY="435.0" prefHeight="34.0" prefWidth="193.0" text="Student" textAlignment="RIGHT">
+         <font>
+            <Font name="Montserrat ExtraBold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="129.0" layoutY="484.0" prefHeight="34.0" prefWidth="193.0" text="Cources" textAlignment="RIGHT">
+         <font>
+            <Font name="Montserrat ExtraBold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="128.0" layoutY="536.0" prefHeight="34.0" prefWidth="193.0" text="Payments" textAlignment="RIGHT">
+         <font>
+            <Font name="Montserrat ExtraBold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="128.0" layoutY="591.0" prefHeight="34.0" prefWidth="193.0" text="Users" textAlignment="RIGHT">
+         <font>
+            <Font name="Montserrat ExtraBold" size="28.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#372214" height="22.0" layoutX="87.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#372214" height="22.0" layoutX="87.0" layoutY="490.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#372214" height="22.0" layoutX="87.0" layoutY="541.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#372214" height="22.0" layoutX="88.0" layoutY="596.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+      <Label fx:id="lblStudentCount" layoutX="268.0" layoutY="434.0" prefHeight="34.0" prefWidth="193.0" text="10" textAlignment="RIGHT">
+         <font>
+            <Font name="Montserrat ExtraBold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPaymentCount" layoutX="290.0" layoutY="536.0" prefHeight="34.0" prefWidth="193.0" text="10" textAlignment="RIGHT">
+         <font>
+            <Font name="Montserrat ExtraBold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCourseCount" layoutX="272.0" layoutY="484.0" prefHeight="34.0" prefWidth="193.0" text="10" textAlignment="RIGHT">
+         <font>
+            <Font name="Montserrat ExtraBold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblUsersCount" layoutX="228.0" layoutY="590.0" prefHeight="34.0" prefWidth="193.0" text="10" textAlignment="RIGHT">
+         <font>
+            <Font name="Montserrat ExtraBold" size="28.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

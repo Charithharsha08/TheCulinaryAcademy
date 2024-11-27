@@ -6,6 +6,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
@@ -14,6 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
 import lk.ijse.managementSystem.model.User;
 import lk.ijse.managementSystem.model.tableModel.AdminTm;
@@ -21,6 +25,7 @@ import lk.ijse.managementSystem.model.tableModel.UserTm;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.io.IOException;
 import java.util.List;
 
 public class AdminManageController {
@@ -170,7 +175,19 @@ try {
 
     @FXML
     void btnUsersOnAction(ActionEvent event) {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(this.getClass().getResource("/view/user-table.fxml"));
+        } catch (IOException e) {
+            new Alert(Alert.AlertType.ERROR, "Cant Load User Table try again !! ").show();
+        }
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
 
+        stage.setTitle("User Table");
+
+        stage.show();
     }
 
     @FXML
