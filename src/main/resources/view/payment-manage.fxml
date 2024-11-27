@@ -61,7 +61,7 @@
             <TableColumn fx:id="colDescription" prefWidth="202.14959716796875" text="Description" />
             <TableColumn fx:id="colDiscount" prefWidth="109.21420288085938" text="Discount" />
             <TableColumn fx:id="colTotal" minWidth="0.0" prefWidth="143.08648681640625" text="Total" />
-            <TableColumn fx:id="colAction" prefWidth="202.4134521484375" text="Action" />
+            <TableColumn fx:id="colAction" minWidth="30.0" prefWidth="202.4134521484375" text="Action" />
          </columns>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="76.0" layoutX="54.0" layoutY="652.0" stroke="BLACK" strokeType="INSIDE" width="847.0" />
@@ -84,12 +84,12 @@
       <Label layoutX="57.0" layoutY="155.0" prefHeight="18.0" prefWidth="34.0" text="Date" />
       <Label fx:id="lblDate" layoutX="96.0" layoutY="156.0" prefHeight="16.0" prefWidth="117.0" />
       <JFXComboBox fx:id="cmbPaymentType" layoutX="491.0" layoutY="677.0" onAction="#cmbPaymentTypeOnAction" prefHeight="25.0" prefWidth="94.0" promptText="payment type" />
-      <Label fx:id="lblNetTotal" layoutX="140.0" layoutY="681.0" prefHeight="28.0" prefWidth="33.0" textFill="#b51313">
+      <Label fx:id="lblNetTotal" layoutX="134.0" layoutY="679.0" prefHeight="28.0" prefWidth="145.0" textFill="#b51313">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="75.0" layoutY="683.0" text="Net Total:">
+      <Label layoutX="68.0" layoutY="683.0" text="Net Total:">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
