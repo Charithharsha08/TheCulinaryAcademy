@@ -64,6 +64,7 @@ public class StudentManageController {
     private ObservableList<StudentTm> obList = FXCollections.observableArrayList();
 
     public void initialize(){
+
         txtStudentId.setVisible(false);
         txtSearchStudent.setVisible(false);
         setCellValueFactory();
