@@ -10,10 +10,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
 import lk.ijse.managementSystem.model.Student;
+import lk.ijse.managementSystem.model.User;
 import lk.ijse.managementSystem.model.tableModel.StudentTm;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
@@ -52,9 +55,14 @@ public class StudentManageController {
     @FXML
     private JFXTextField txtTel;
 
+    User currentUser = LoginFormController.user;
+
+
+
     private ObservableList<StudentTm> obList = FXCollections.observableArrayList();
 
     public void initialize(){
+        txtStudentId.setVisible(false);
         setCellValueFactory();
         loadStudentTable();
     }
@@ -77,9 +85,9 @@ public class StudentManageController {
 
     private void setCellValueFactory() {
         colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
-        colStudentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("studentAddress"));
-        colTelephoneNumber.setCellValueFactory(new PropertyValueFactory<>("studentContact"));
+        colStudentName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colTelephoneNumber.setCellValueFactory(new PropertyValueFactory<>("contact"));
     }
 
     @FXML
@@ -95,7 +103,16 @@ public class StudentManageController {
 
     @FXML
     void btnDeleleStudentOnAction(ActionEvent event) {
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
 
+        Student student = session.get(Student.class, selectedStudent.getStudentId() );
+        session.delete(student);
+        transaction.commit();
+        session.close();
+        new Alert(Alert.AlertType.INFORMATION, "Student Deleted").show();
+        loadStudentTable();
     }
 
     @FXML
@@ -109,10 +126,13 @@ public class StudentManageController {
 
             Session session = SessionFactoryConfig.getInstance().getSession();
             Student student = new Student(
-                    txtStudentId.getText(),
+                    "1",
                     txtStudentName.getText(),
                     txtAddress.getText(),
-                    txtTel.getText());
+                    txtMail.getText(),
+                    txtTel.getText(),
+                    currentUser);
+
             session.save(student);
             session.beginTransaction().commit();
             session.close();
@@ -122,7 +142,19 @@ public class StudentManageController {
     }
     @FXML
     void btnUpdateStudentOnAction(ActionEvent event) {
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
 
+        Student student = session.get(Student.class, selectedStudent.getStudentId() );
+        student.setName(txtStudentName.getText());
+        student.setAddress(txtAddress.getText());
+        student.setContact(txtTel.getText());
+        session.update(student);
+        transaction.commit();
+        session.close();
+        new Alert(Alert.AlertType.INFORMATION, "Student Updated").show();
+        loadStudentTable();
     }
 
     @FXML
@@ -194,4 +226,23 @@ if (txtStudentId.getText() == null || txtStudentId.getText().trim().isEmpty()) {
 return true;
 
     }
+
+    public void tblMouseClicedOnAction(MouseEvent mouseEvent) {
+        btnClearBtnOnAction(null);
+        StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction =session.beginTransaction();
+
+        Student student = session.get(Student.class, selectedStudent.getStudentId() );
+
+        txtStudentId.setText(student.getId());
+        txtStudentName.setText(student.getName());
+        txtAddress.setText(student.getAddress());
+        txtMail.setText(student.getEmail());
+        txtTel.setText(student.getContact());
+
+        transaction.commit();
+        session.close();
+    }
+
 }

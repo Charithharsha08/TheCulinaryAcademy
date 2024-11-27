@@ -37,6 +37,8 @@ public class LoginFormController {
     @FXML
     private JFXTextField txtUserName;
 
+    public static User user = null;
+
     @FXML
     void OnKeyReleaserUsername(KeyEvent event) {
 
@@ -96,7 +98,7 @@ public class LoginFormController {
         Session session = null;
         try {
          session = SessionFactoryConfig.getInstance().getSession();
-        User user = session.get(User.class,txtUserName.getText());
+         user = session.get(User.class,txtUserName.getText());
         if (user != null && user.getPassword().equals(txtPassword.getText())) {
             return true;
         }else {

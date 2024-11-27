@@ -31,7 +31,7 @@
             <JFXTextField fx:id="txtTel" labelFloat="true" layoutX="54.0" layoutY="454.0" onAction="#txtTelOnAction" onKeyReleased="#txtTelOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Telephone Number" />
          </children>
       </Pane>
-      <TableView fx:id="tblStudent" layoutX="35.0" layoutY="141.0" prefHeight="579.0" prefWidth="461.0">
+      <TableView fx:id="tblStudent" layoutX="35.0" layoutY="141.0" onMouseClicked="#tblMouseClicedOnAction" prefHeight="579.0" prefWidth="461.0">
          <columns>
             <TableColumn fx:id="colStudentId" prefWidth="66.76664352416992" text="Student Id" />
             <TableColumn fx:id="colStudentName" prefWidth="120.73335266113281" text="Student Name" />
