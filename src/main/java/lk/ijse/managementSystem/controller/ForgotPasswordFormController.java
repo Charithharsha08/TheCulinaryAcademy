@@ -88,22 +88,22 @@ public class ForgotPasswordFormController {
 
     @FXML
     void txtJobRoleOnAction(ActionEvent event) {
-
+txtNewPassword.requestFocus();
     }
 
     @FXML
     void txtNewPasswordOnAction(ActionEvent event) {
-
+txtRetypePassword.requestFocus();
     }
 
     @FXML
     void txtRetypePasswordOnAction(ActionEvent event) {
-
+btnChangePasswordOnAction(event);
     }
 
     @FXML
     void txtUserNameOnAction(ActionEvent event) {
-
+txtJobRole.requestFocus();
     }
 
 }

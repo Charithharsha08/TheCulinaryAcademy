@@ -30,6 +30,9 @@ public class RegisterFormController {
 
     @FXML
     private JFXTextField txtUserName;
+    public void initialize() {
+        txtUserId.setVisible(false);
+    }
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
@@ -64,17 +67,17 @@ try {
 
     @FXML
     void txtPasswordOnAction(ActionEvent event) {
-
+btnRegisterOnAction(event);
     }
 
     @FXML
     void txtUserIdOnAction(ActionEvent event) {
-
+txtUserName.requestFocus();
     }
 
     @FXML
     void txtUserNameOnAction(ActionEvent event) {
-
+txtPassword.requestFocus();
     }
 
     public void txtJobRoleOnAction(ActionEvent actionEvent) {

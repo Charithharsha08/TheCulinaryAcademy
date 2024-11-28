@@ -1,5 +1,6 @@
 package lk.ijse.managementSystem.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,6 +24,7 @@ import java.util.Optional;
 
 public class ProgramManageController {
 
+    public JFXButton btnSearchProgram;
     @FXML
     private TableColumn<?, ?> colDuration;
 
@@ -58,6 +60,7 @@ public class ProgramManageController {
 
         txtSearchProgramm.setVisible(false);
         txtProgramId.setVisible(false);
+        btnSearchProgram.setVisible(false);
         setCellValueFactory();
         loadProgramTable();
     }
@@ -182,12 +185,12 @@ tblProgram.setItems(obList);
 
     @FXML
     void txtDurationOnAction(ActionEvent event) {
-
+txtFee.requestFocus();
     }
 
     @FXML
     void txtFeeOnAction(ActionEvent event) {
-
+btnProgramAddButtonOnAction(event);
     }
 
     @FXML
@@ -197,7 +200,7 @@ tblProgram.setItems(obList);
 
     @FXML
     void txtProgramNameOnAction(ActionEvent event) {
-
+        txtDuration.requestFocus();
     }
 
     @FXML

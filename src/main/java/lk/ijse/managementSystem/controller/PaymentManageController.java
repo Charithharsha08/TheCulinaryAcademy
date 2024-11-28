@@ -264,8 +264,8 @@ public class PaymentManageController {
             new Alert(Alert.AlertType.WARNING, "No Student Found").show();
         }finally {
             session.close();
-        }
 
+        }
 
     }
 

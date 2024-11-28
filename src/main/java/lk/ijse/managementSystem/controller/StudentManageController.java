@@ -222,12 +222,12 @@ clearFields();
 
     @FXML
     void txtAddressOnAction(ActionEvent event) {
-
+txtMail.requestFocus();
     }
 
     @FXML
     void txtMailOnAction(ActionEvent event) {
-
+        txtTel.requestFocus();
     }
 
     @FXML
@@ -242,7 +242,7 @@ clearFields();
 
     @FXML
     void txtStudentNameOnAction(ActionEvent event) {
-
+txtAddress.requestFocus();
     }
 
     @FXML
@@ -262,7 +262,7 @@ clearFields();
 
     @FXML
     void txtTelOnAction(ActionEvent event) {
-
+btnStudentAddButtonOnAction(null);
     }
 
     @FXML

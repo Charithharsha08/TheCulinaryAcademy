@@ -212,7 +212,7 @@ public class AdminManageController {
 
     @FXML
     void txtPasswordOnAction(ActionEvent event) {
-
+btnAdminAddButtonOnAction(event);
     }
 
     @FXML
@@ -232,7 +232,7 @@ public class AdminManageController {
 
     @FXML
     void txtUserNameOnAction(ActionEvent event) {
-
+txtPassword.requestFocus();
     }
 
     public void tblAdminMouseClick(MouseEvent mouseEvent) {
