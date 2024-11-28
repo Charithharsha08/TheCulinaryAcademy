@@ -16,19 +16,19 @@
             <Font name="Times New Roman Bold" size="56.0" />
          </font>
       </Label>
-      <Pane layoutX="540.0" layoutY="35.0" prefHeight="687.0" prefWidth="401.0" styleClass="rectangle" stylesheets="@../style/style.css">
+      <Pane layoutX="540.0" layoutY="142.0" prefHeight="579.0" prefWidth="401.0" styleClass="rectangle" stylesheets="@../style/style.css">
          <children>
-            <JFXTextField fx:id="txtStudentId" labelFloat="true" layoutX="57.0" layoutY="143.0" onAction="#txtStudentIdOnAction" onKeyReleased="#txtStudentOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Student Id" />
-            <JFXTextField fx:id="txtMail" labelFloat="true" layoutX="54.0" layoutY="380.0" onAction="#txtMailOnAction" onKeyReleased="#txtMailOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Mail" />
-            <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="57.0" layoutY="298.0" onAction="#txtAddressOnAction" prefHeight="26.0" prefWidth="280.0" promptText="Address" />
-            <JFXTextField fx:id="txtStudentName" labelFloat="true" layoutX="58.0" layoutY="228.0" onAction="#txtStudentNameOnAction" onKeyReleased="#txtStudentNameOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Student Name" />
-            <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="578.0" onAction="#btnStudentAddButtonOnAction" prefHeight="26.0" prefWidth="148.0" text="Add Student" />
-            <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="632.0" onAction="#btnDeleleStudentOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="delete-button" stylesheets="@../style/style.css" text="Delete Student" />
-            <JFXButton buttonType="RAISED" layoutX="215.0" layoutY="632.0" onAction="#btnClearBtnOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="clear-button" stylesheets="@../style/style.css" text="Clear Fields" />
-            <JFXButton buttonType="RAISED" layoutX="212.0" layoutY="577.0" onAction="#btnUpdateStudentOnAction" prefHeight="23.0" prefWidth="148.0" styleClass="update-button" stylesheets="@../style/style.css" text="Update Student" />
-            <JFXTextField fx:id="txtSearchStudent" labelFloat="true" layoutX="58.0" layoutY="23.0" onAction="#txtStudentSearchOnAction" prefHeight="26.0" prefWidth="215.0" promptText="Search Student" />
-            <JFXButton buttonType="RAISED" layoutX="307.0" layoutY="23.0" onAction="#btnSearchOnAction" styleClass="login-button" stylesheets="@../style/style.css" text="Search" textFill="#f8f8f8" />
-            <JFXTextField fx:id="txtTel" labelFloat="true" layoutX="54.0" layoutY="454.0" onAction="#txtTelOnAction" onKeyReleased="#txtTelOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Telephone Number" />
+            <JFXTextField fx:id="txtStudentId" labelFloat="true" layoutX="57.0" layoutY="33.0" onAction="#txtStudentIdOnAction" onKeyReleased="#txtStudentOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Student Id" />
+            <JFXTextField fx:id="txtMail" labelFloat="true" layoutX="54.0" layoutY="270.0" onAction="#txtMailOnAction" onKeyReleased="#txtMailOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Mail" />
+            <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="57.0" layoutY="188.0" onAction="#txtAddressOnAction" prefHeight="26.0" prefWidth="280.0" promptText="Address" />
+            <JFXTextField fx:id="txtStudentName" labelFloat="true" layoutX="58.0" layoutY="118.0" onAction="#txtStudentNameOnAction" onKeyReleased="#txtStudentNameOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Student Name" />
+            <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="468.0" onAction="#btnStudentAddButtonOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="add-button" stylesheets="@../style/style.css" text="Add Student" />
+            <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="522.0" onAction="#btnDeleleStudentOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="delete-button" stylesheets="@../style/style.css" text="Delete Student" />
+            <JFXButton buttonType="RAISED" layoutX="215.0" layoutY="522.0" onAction="#btnClearBtnOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="clear-button" stylesheets="@../style/style.css" text="Clear Fields" />
+            <JFXButton buttonType="RAISED" layoutX="212.0" layoutY="467.0" onAction="#btnUpdateStudentOnAction" prefHeight="23.0" prefWidth="148.0" styleClass="update-button" stylesheets="@../style/style.css" text="Update Student" />
+            <JFXTextField fx:id="txtSearchStudent" labelFloat="true" layoutX="58.0" layoutY="-97.0" onAction="#txtStudentSearchOnAction" prefHeight="26.0" prefWidth="215.0" promptText="Search Student" />
+            <JFXButton fx:id="btnSearch" buttonType="RAISED" layoutX="307.0" layoutY="-97.0" onAction="#btnSearchOnAction" styleClass="login-button" stylesheets="@../style/style.css" text="Search" textFill="#f8f8f8" />
+            <JFXTextField fx:id="txtTel" labelFloat="true" layoutX="54.0" layoutY="344.0" onAction="#txtTelOnAction" onKeyReleased="#txtTelOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Telephone Number" />
          </children>
       </Pane>
       <TableView fx:id="tblStudent" layoutX="35.0" layoutY="141.0" onMouseClicked="#tblMouseClickedOnAction" prefHeight="579.0" prefWidth="461.0" stylesheets="@../style/tableStyle.css">

@@ -103,20 +103,23 @@ public class AdminManageController {
 
     @FXML
     void btnAdminAddButtonOnAction(ActionEvent event) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-try {
-    User user = new User(txtUserName.getText(), txtPassword.getText(), "ADMIN");
 
-    session.save(user);
-    transaction.commit();
-}catch (Exception e){
-    new Alert(Alert.AlertType.ERROR, "Admin Already Exists or Invalid Credentials").show();
-    return;
-}
-        session.close();
-        new Alert(Alert.AlertType.INFORMATION, "Admin Added").show();
-        loadAdminTable();
+        if (isValid()) {
+            Session session = SessionFactoryConfig.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
+            try {
+                User user = new User(txtUserName.getText(), txtPassword.getText(), "ADMIN");
+
+                session.save(user);
+                transaction.commit();
+            } catch (Exception e) {
+                new Alert(Alert.AlertType.ERROR, "Admin Already Exists or Invalid Credentials").show();
+                return;
+            }
+            session.close();
+            new Alert(Alert.AlertType.INFORMATION, "Admin Added").show();
+            loadAdminTable();
+        }
     }
 
     @FXML
@@ -128,7 +131,7 @@ try {
 
     private void clearFields() {
         txtAdminId.clear();
-        txtName.clear();
+
         txtPassword.clear();
         txtSearchAdmin.clear();
         txtUserName.clear();
@@ -246,5 +249,15 @@ try {
 
         transaction.commit();
         session.close();
+    }
+
+    public boolean isValid(){
+        if(txtUserName.getText().isEmpty() || txtPassword.getText().isEmpty() || txtName.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR, "Please fill all the fields").show();
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }

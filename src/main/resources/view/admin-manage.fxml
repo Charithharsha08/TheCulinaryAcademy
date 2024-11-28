@@ -20,12 +20,12 @@
          <children>
             <JFXTextField fx:id="txtAdminId" labelFloat="true" layoutX="57.0" layoutY="6.0" onAction="#txtAdminIdOnAction" onKeyReleased="#txtStudentOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Admin Id" />
             <JFXTextField fx:id="txtPassword" labelFloat="true" layoutX="54.0" layoutY="227.0" onAction="#txtPasswordOnAction" onKeyReleased="#txtTelOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Password" />
-            <JFXTextField fx:id="txtName" labelFloat="true" layoutX="57.0" layoutY="145.0" onAction="#txtNameOnAction" prefHeight="26.0" prefWidth="280.0" promptText="Name" />
+            <JFXTextField fx:id="txtName" editable="false" labelFloat="true" layoutX="57.0" layoutY="155.0" onAction="#txtNameOnAction" prefHeight="26.0" prefWidth="280.0" promptText="Job Role" text="ADMIN" />
             <JFXTextField fx:id="txtUserName" labelFloat="true" layoutX="58.0" layoutY="75.0" onAction="#txtUserNameOnAction" onKeyReleased="#txtStudentNameOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="User Name" />
-            <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="297.0" onAction="#btnAdminAddButtonOnAction" prefHeight="26.0" prefWidth="148.0" text="Add Student" />
-            <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="347.0" onAction="#btnDeleleAdminOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="delete-button" stylesheets="@../style/style.css" text="Delete Student" />
-            <JFXButton buttonType="RAISED" layoutX="215.0" layoutY="347.0" onAction="#btnClearBtnOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="clear-button" stylesheets="@../style/style.css" text="Clear Fields" />
-            <JFXButton buttonType="RAISED" layoutX="212.0" layoutY="296.0" onAction="#btnUpdateAdminOnAction" prefHeight="23.0" prefWidth="148.0" styleClass="update-button" stylesheets="@../style/style.css" text="Update Student" />
+            <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="297.0" onAction="#btnAdminAddButtonOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="add-button" stylesheets="@../style/style.css" text="Add Admin" />
+            <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="367.0" onAction="#btnDeleleAdminOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="delete-button" stylesheets="@../style/style.css" text="Delete Admin" />
+            <JFXButton buttonType="RAISED" layoutX="215.0" layoutY="367.0" onAction="#btnClearBtnOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="clear-button" stylesheets="@../style/style.css" text="Clear Fields" />
+            <JFXButton buttonType="RAISED" layoutX="212.0" layoutY="296.0" onAction="#btnUpdateAdminOnAction" prefHeight="23.0" prefWidth="148.0" styleClass="update-button" stylesheets="@../style/style.css" text="Update Admin" />
             <JFXTextField fx:id="txtSearchAdmin" labelFloat="true" layoutX="59.0" layoutY="-46.0" onAction="#txtAdminSearchOnAction" prefHeight="26.0" prefWidth="215.0" promptText="Search Admin" />
             <JFXButton fx:id="btnSearchAdmin" buttonType="RAISED" layoutX="307.0" layoutY="-46.0" onAction="#btnSearchOnAction" styleClass="login-button" stylesheets="@../style/style.css" text="Search" textFill="#f8f8f8" />
          </children>

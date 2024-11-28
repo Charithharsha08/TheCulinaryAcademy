@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.managementSystem.controller.UserTableController">
    <children>
-      <TableView fx:id="tblUsers" layoutX="35.0" layoutY="111.0" prefHeight="259.0" prefWidth="539.0">
+      <TableView fx:id="tblUsers" layoutX="35.0" layoutY="111.0" prefHeight="259.0" prefWidth="539.0" stylesheets="@../style/tableStyle.css">
         <columns>
           <TableColumn fx:id="colUserId" prefWidth="64.0" text="User Id " />
           <TableColumn fx:id="colUserName" prefWidth="127.0" text="User Name" />

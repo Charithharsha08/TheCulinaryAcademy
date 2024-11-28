@@ -19,7 +19,7 @@
             <Font name="Times New Roman Bold" size="56.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtSearchId" labelFloat="true" layoutX="649.0" layoutY="150.0" onAction="#txtSearchIdOnAction" prefHeight="25.0" prefWidth="174.0" promptText="Search Contact Number" />
+      <JFXTextField fx:id="txtSearchId" labelFloat="true" layoutX="629.0" layoutY="150.0" onAction="#txtSearchIdOnAction" prefHeight="25.0" prefWidth="174.0" promptText="Search Contact Number" />
       <ImageView fitHeight="32.0" fitWidth="27.0" layoutX="716.0" layoutY="183.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../LAoceansync/oceansync/src/main/resources/asserts/image/icon/icons8-search-64.png" />
@@ -29,8 +29,8 @@
       <Label fx:id="lblCustomerId" layoutX="159.0" layoutY="196.0" prefHeight="17.0" prefWidth="135.0" />
       <Label layoutX="305.0" layoutY="196.0" text="Customer Name:-" />
       <Label fx:id="lblCustomerName" layoutX="424.0" layoutY="196.0" prefHeight="17.0" prefWidth="212.0" />
-      <Label layoutX="650.0" layoutY="196.0" text="Telephone Number" />
-      <Label fx:id="lblTel" layoutX="786.0" layoutY="196.0" prefHeight="17.0" prefWidth="71.0" />
+      <Label layoutX="630.0" layoutY="196.0" text="Telephone Number" />
+      <Label fx:id="lblTel" layoutX="766.0" layoutY="196.0" prefHeight="17.0" prefWidth="71.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="58.0" layoutX="53.0" layoutY="307.0" stroke="BLACK" strokeType="INSIDE" width="847.0" />
       <Label layoutX="57.0" layoutY="276.0" prefHeight="21.0" prefWidth="166.0" text="Selected Programme">
          <font>
@@ -44,7 +44,7 @@
       <Label fx:id="lblSelectedCourceCost" layoutX="372.0" layoutY="326.0" prefHeight="17.0" prefWidth="76.0" />
       <Label layoutX="463.0" layoutY="326.0" text="Duration :-" />
       <Label fx:id="lblDuration" layoutX="524.0" layoutY="326.0" prefHeight="17.0" prefWidth="87.0" />
-      <JFXButton buttonType="RAISED" layoutX="702.0" layoutY="322.0" onAction="#btnAddToCartCourceOnAction" prefHeight="27.0" prefWidth="166.0" styleClass="login-button" stylesheets="@../style/style.css" text="Add To Cart" textFill="#f5f5f5">
+      <JFXButton buttonType="RAISED" layoutX="721.0" layoutY="314.0" onAction="#btnAddToCartCourceOnAction" prefHeight="27.0" prefWidth="166.0" styleClass="login-button" stylesheets="@../style/style.css" text="Add To Cart" textFill="#f5f5f5">
          <graphic>
             <ImageView fitHeight="16.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -60,25 +60,13 @@
             <TableColumn fx:id="colCustomerName" prefWidth="132.0" text="Customer Name" />
             <TableColumn fx:id="colDescription" prefWidth="202.14959716796875" text="Description" />
             <TableColumn fx:id="colDiscount" prefWidth="109.21420288085938" text="Discount" />
-            <TableColumn fx:id="colTotal" minWidth="0.0" prefWidth="143.08648681640625" text="Total" />
+            <TableColumn fx:id="colTotal" minWidth="20.0" prefWidth="143.08648681640625" text="Total" />
             <TableColumn fx:id="colAction" minWidth="30.0" prefWidth="202.4134521484375" text="Action" />
          </columns>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="76.0" layoutX="54.0" layoutY="652.0" stroke="BLACK" strokeType="INSIDE" width="847.0" />
-      <JFXButton buttonType="RAISED" layoutX="629.0" layoutY="676.0" onAction="#btnPlacePaymentOnAction" styleClass="login-button" stylesheets="@../style/style.css" text="Place Payment" textFill="#fcfcfc">
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../LAoceansync/oceansync/src/main/resources/image/icon/order" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="772.0" layoutY="674.0" onAction="#btnClearOnAction" prefHeight="27.0" prefWidth="103.0" styleClass="clear-button" stylesheets="@../style/style.css" text="Clear">
-         <graphic>
-            <ImageView fitHeight="16.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
-         </graphic>
-      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="635.0" layoutY="669.0" onAction="#btnPlacePaymentOnAction" styleClass="login-button" stylesheets="@../style/style.css" text="Place Payment" textFill="#fcfcfc" />
+      <JFXButton buttonType="RAISED" layoutX="778.0" layoutY="667.0" onAction="#btnClearOnAction" prefHeight="27.0" prefWidth="103.0" styleClass="clear-button" stylesheets="@../style/style.css" text="Clear" />
       <Label layoutX="306.0" layoutY="154.0" prefHeight="18.0" prefWidth="43.0" text="Time" />
       <Label fx:id="lblTime" layoutX="360.0" layoutY="155.0" prefHeight="16.0" prefWidth="109.0" />
       <Label layoutX="57.0" layoutY="155.0" prefHeight="18.0" prefWidth="34.0" text="Date" />
@@ -94,7 +82,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="836.0" layoutY="149.0" onAction="#btncreateNewCustomerOnAction" styleClass="pane_11" stylesheets="@../../../../../../LAoceansync/oceansync/src/main/resources/css/design.css" text="New" />
+      <JFXButton buttonType="RAISED" layoutX="816.0" layoutY="149.0" onAction="#btncreateNewCustomerOnAction" styleClass="clear-button" stylesheets="@../style/style.css" text="New" />
       <JFXTextField fx:id="txtAmount" labelFloat="true" layoutX="273.0" layoutY="677.0" onAction="#txtAmountOnAction" promptText="Amount" />
       <Label layoutX="58.0" layoutY="626.0" prefHeight="21.0" prefWidth="166.0" text="Place Order">
          <font>

@@ -1,71 +1,115 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 
-.rectangle{
-    -fx-background-color: rgba(133, 133, 136, 0.7);
+.rectangle {
+    -fx-background-color: rgba(115, 92, 88, 0.7); /* Soft warm brown with opacity */
     -fx-background-radius: 10;
     -fx-opacity: 20;
-    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);*/
-
+    /* -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10); */
 }
 
-.login-button{
-    -fx-background-color: #372214;
-    -fx-background-radius: 10;
-
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
-
-}
-.add-button{
-    -fx-background-color: #372214;
-    -fx-background-radius: 10;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
-    -fx-font-family: "Open Sans";
-    -fx-font-size: 12;
-}
-
-.update-button{
-    -fx-background-color: lightgreen;
-    -fx-background-radius: 10;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
-    -fx-font-family: "Open Sans";
-    -fx-font-size: 12;
-}
-
-.delete-button{
-    -fx-background-color: #fb5252;
-    -fx-background-radius: 10;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
-    -fx-font-family: "Open Sans";
-    -fx-font-size: 12;
-}
-
-.clear-button{
-    -fx-background-color: white;
-    -fx-background-radius: 10;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
-    -fx-font-family: "Open Sans";
-    -fx-font-size: 12;
-
-}
-.background{
+.background {
     -fx-background-image: url("../resources/images/login-background.jpg");
     -fx-background-position: center center;
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
-    -fx-border-color: red;
+    -fx-border-color: #d9534f; /* Soft red to match delete button */
 }
-.header{
-    -fx-background-color: #372214;
+
+.header {
+    -fx-background-color: #372214; /* Dark brown */
     -fx-background-radius: 10;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
 }
 
-.card{
-    -fx-background-color: #372214;
+.card {
+    -fx-background-color: #372214; /* Dark brown */
     -fx-opacity: 0.7;
     -fx-background-radius: 10;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
 }
+.text-field {
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
+    -fx-text-fill: white;
+    -fx-font-family: "Open Sans";
+}
 
+.login-button,
+.add-button,
+.update-button,
+.delete-button,
+.clear-button {
+    -fx-background-radius: 10;
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white; /* Default text color */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.5, 0, 3); /* Soft shadow */
+    -fx-cursor: hand;
+    -fx-padding: 10 20;
+    -fx-border-radius: 10;
+    -fx-border-width: 2;
+    -fx-border-color: transparent;
+    -fx-transition: 0.3s;
+}
+
+.login-button {
+    -fx-background-color: linear-gradient(to bottom, #6e4b3d, #372214); /* Gradient brown */
+}
+
+.login-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #7f5644, #4b3226); /* Slightly lighter on hover */
+    -fx-transform: scale(1.05); /* Scale up */
+}
+
+.add-button {
+    -fx-background-color: linear-gradient(to bottom, #8b6a60, #725b53); /* Medium brown gradient */
+}
+
+.add-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #9c776a, #816863); /* Lighter brown */
+    -fx-transform: scale(1.05); /* Scale up */
+}
+
+.update-button {
+    -fx-background-color: linear-gradient(to bottom, #68c580, #49a962); /* Fresh green gradient */
+    -fx-text-fill: white; /* Ensure text is visible */
+}
+
+.update-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #7bd292, #5db578); /* Lighter green on hover */
+    -fx-transform: scale(1.05);
+}
+
+.delete-button {
+    -fx-background-color: linear-gradient(to bottom, #e55353, #c44242); /* Gradient red */
+}
+
+.delete-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #f36565, #d14c4c); /* Brighter red */
+    -fx-transform: scale(1.05);
+}
+
+.clear-button {
+    -fx-background-color: linear-gradient(to bottom, #f7f7f7, #eaeaea); /* Light grey gradient */
+    -fx-text-fill: #372214; /* Text matches the theme */
+    -fx-border-color: #372214; /* Add a subtle border */
+}
+
+.clear-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Slightly lighter grey */
+    -fx-transform: scale(1.05);
+    -fx-border-color: #725b53; /* Brown border on hover */
+}
+
+/* Button active effect */
+.login-button:pressed,
+.add-button:pressed,
+.update-button:pressed,
+.delete-button:pressed,
+.clear-button:pressed {
+    -fx-background-color: #372214; /* Dark brown for all buttons when pressed */
+    -fx-text-fill: white; /* Text stays clear */
+    -fx-transform: scale(0.95); /* Slight shrink on press */
+}

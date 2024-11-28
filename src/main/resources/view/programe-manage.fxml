@@ -16,18 +16,18 @@
             <Font name="Times New Roman Bold" size="56.0" />
          </font>
       </Label>
-      <Pane layoutX="542.0" layoutY="45.0" prefHeight="687.0" prefWidth="401.0" styleClass="rectangle" stylesheets="@../style/style.css">
+      <Pane layoutX="544.0" layoutY="155.0" prefHeight="577.0" prefWidth="401.0" styleClass="rectangle" stylesheets="@../style/style.css">
          <children>
-            <JFXTextField fx:id="txtProgramId" labelFloat="true" layoutX="57.0" layoutY="192.0" onAction="#txtProgramIdOnAction" onKeyReleased="#txtStudentOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Program Id" />
-            <JFXTextField fx:id="txtFee" labelFloat="true" layoutX="54.0" layoutY="429.0" onAction="#txtFeeOnAction" onKeyReleased="#txtTelOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Fee" />
-            <JFXTextField fx:id="txtDuration" labelFloat="true" layoutX="57.0" layoutY="347.0" onAction="#txtDurationOnAction" prefHeight="26.0" prefWidth="280.0" promptText="Duration" />
-            <JFXTextField fx:id="txtProgramName" labelFloat="true" layoutX="58.0" layoutY="277.0" onAction="#txtProgramNameOnAction" onKeyReleased="#txtStudentNameOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Program Name" />
-            <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="578.0" onAction="#btnProgramAddButtonOnAction" prefHeight="26.0" prefWidth="148.0" text="Add Student" />
-            <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="632.0" onAction="#btnDeleleProgramOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="delete-button" stylesheets="@../style/style.css" text="Delete Student" />
-            <JFXButton buttonType="RAISED" layoutX="215.0" layoutY="632.0" onAction="#btnClearBtnOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="clear-button" stylesheets="@../style/style.css" text="Clear Fields" />
-            <JFXButton buttonType="RAISED" layoutX="212.0" layoutY="577.0" onAction="#btnUpdateProgramOnAction" prefHeight="23.0" prefWidth="148.0" styleClass="update-button" stylesheets="@../style/style.css" text="Update Student" />
-            <JFXTextField fx:id="txtSearchProgramm" labelFloat="true" layoutX="59.0" layoutY="23.0" onAction="#txtProgramSearchOnAction" prefHeight="26.0" prefWidth="215.0" promptText="Search Programe" />
-            <JFXButton buttonType="RAISED" layoutX="307.0" layoutY="23.0" onAction="#btnSearchOnAction" styleClass="login-button" stylesheets="@../style/style.css" text="Search" textFill="#f8f8f8" />
+            <JFXTextField fx:id="txtProgramId" labelFloat="true" layoutX="57.0" layoutY="52.0" onAction="#txtProgramIdOnAction" onKeyReleased="#txtStudentOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Program Id" />
+            <JFXTextField fx:id="txtFee" labelFloat="true" layoutX="54.0" layoutY="289.0" onAction="#txtFeeOnAction" onKeyReleased="#txtTelOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Fee" />
+            <JFXTextField fx:id="txtDuration" labelFloat="true" layoutX="57.0" layoutY="207.0" onAction="#txtDurationOnAction" prefHeight="26.0" prefWidth="280.0" promptText="Duration" />
+            <JFXTextField fx:id="txtProgramName" labelFloat="true" layoutX="58.0" layoutY="137.0" onAction="#txtProgramNameOnAction" onKeyReleased="#txtStudentNameOnKeyRelease" prefHeight="26.0" prefWidth="280.0" promptText="Program Name" />
+            <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="423.0" onAction="#btnProgramAddButtonOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="add-button" stylesheets="@../style/style.css" text="Add Program" />
+            <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="492.0" onAction="#btnDeleleProgramOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="delete-button" stylesheets="@../style/style.css" text="Delete Program" />
+            <JFXButton buttonType="RAISED" layoutX="215.0" layoutY="492.0" onAction="#btnClearBtnOnAction" prefHeight="26.0" prefWidth="148.0" styleClass="clear-button" stylesheets="@../style/style.css" text="Clear Fields" />
+            <JFXButton buttonType="RAISED" layoutX="212.0" layoutY="422.0" onAction="#btnUpdateProgramOnAction" prefHeight="23.0" prefWidth="148.0" styleClass="update-button" stylesheets="@../style/style.css" text="Update Program" />
+            <JFXTextField fx:id="txtSearchProgramm" labelFloat="true" layoutX="59.0" layoutY="-107.0" onAction="#txtProgramSearchOnAction" prefHeight="26.0" prefWidth="215.0" promptText="Search Programe" />
+            <JFXButton buttonType="RAISED" layoutX="307.0" layoutY="-107.0" onAction="#btnSearchOnAction" styleClass="login-button" stylesheets="@../style/style.css" text="Search" textFill="#f8f8f8" />
          </children>
       </Pane>
       <TableView fx:id="tblProgram" layoutX="45.0" layoutY="151.0" onMousePressed="#tblProgramMousePressed" prefHeight="579.0" prefWidth="461.0" stylesheets="@../style/tableStyle.css">

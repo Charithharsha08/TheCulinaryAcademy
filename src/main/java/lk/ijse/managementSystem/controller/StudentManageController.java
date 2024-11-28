@@ -1,5 +1,6 @@
 package lk.ijse.managementSystem.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,6 +25,7 @@ import java.util.Optional;
 
 public class StudentManageController {
 
+    public JFXButton btnSearch;
     @FXML
     private TableColumn<?, ?> colAddress;
 
@@ -67,6 +69,7 @@ public class StudentManageController {
 
         txtStudentId.setVisible(false);
         txtSearchStudent.setVisible(false);
+        btnSearch.setVisible(false);
         setCellValueFactory();
         loadStudentTable();
     }
@@ -267,10 +270,11 @@ clearFields();
 
     }
     private boolean isValid(){
-if (txtStudentId.getText() == null || txtStudentId.getText().trim().isEmpty()) {
-    new Alert(Alert.AlertType.WARNING, "Student Id can't be empty").show();
-    return false;
-}if (txtStudentName.getText() == null || txtStudentName.getText().trim().isEmpty()) {
+//if (txtStudentId.getText() == null || txtStudentId.getText().trim().isEmpty()) {
+//    new Alert(Alert.AlertType.WARNING, "Student Id can't be empty").show();
+//    return false;
+//}
+if (txtStudentName.getText() == null || txtStudentName.getText().trim().isEmpty()) {
     new Alert(Alert.AlertType.WARNING, "Student Name can't be empty").show();
     return false;
 }if (txtAddress.getText() == null || txtAddress.getText().trim().isEmpty()) {
