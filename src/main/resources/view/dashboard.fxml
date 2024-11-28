@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.managementSystem.controller.DashboardController">
+<AnchorPane fx:id="rootNode" prefHeight="768.0" prefWidth="1413.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.managementSystem.controller.DashboardController">
    <children>
       <VBox fx:id="sideBar" layoutX="-3.0" prefHeight="768.0" prefWidth="369.0" styleClass="rectangle" stylesheets="@../style/style.css">
          <children>
@@ -49,5 +49,17 @@
          </children>
       </VBox>
       <AnchorPane fx:id="sidePane" layoutX="367.0" layoutY="-2.0" prefHeight="769.0" prefWidth="951.0" />
+      <JFXButton fx:id="btnLogOut" buttonType="RAISED" layoutX="1320.0" layoutY="23.0" onAction="#btnLogOutOnAction" prefHeight="65.0" prefWidth="78.0">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icon/logOut.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="1.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

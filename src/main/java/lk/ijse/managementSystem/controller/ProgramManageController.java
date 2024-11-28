@@ -111,9 +111,17 @@ tblProgram.setItems(obList);
         }
         Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this program?").showAndWait();
         if (result.get() == ButtonType.OK) {
+
+            try {
             Course course = session.get(Course.class, selectedProgram.getId());
             session.delete(course);
             transaction.commit();
+
+            } catch (Exception e) {
+                new Alert(Alert.AlertType.ERROR, "Cannot delete this program this program is assigned to a student").show();
+                return;
+            }
+
             session.close();
             new Alert(Alert.AlertType.INFORMATION, "Program Deleted").show();
             loadProgramTable();

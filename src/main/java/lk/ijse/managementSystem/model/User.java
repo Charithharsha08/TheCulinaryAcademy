@@ -1,5 +1,6 @@
 package lk.ijse.managementSystem.model;
 
+import com.jfoenix.controls.JFXButton;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,5 +26,6 @@ public class User  {
 
     @Column(name = "job_role")
     private String jobRole;
+
 
 }

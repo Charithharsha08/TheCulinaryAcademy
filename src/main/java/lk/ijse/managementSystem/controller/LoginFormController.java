@@ -79,6 +79,7 @@ public class LoginFormController {
         stage.setScene(scene);
 
         stage.setTitle("Payment Form");
+        stage.centerOnScreen();
 
         stage.show();
 
@@ -113,5 +114,23 @@ e.printStackTrace();
             session.close();
         }
         return false;
+    }
+
+    public void hyperLinkForgetPasswordOnAction(ActionEvent actionEvent) {
+        Parent rootNode = null;
+        try {
+            rootNode = FXMLLoader.load(this.getClass().getResource("/view/forgot-password-form.fxml"));
+        } catch (IOException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+
+        }
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+
+        stage.setTitle("Payment Form");
+        stage.centerOnScreen();
+
+        stage.show();
     }
 }

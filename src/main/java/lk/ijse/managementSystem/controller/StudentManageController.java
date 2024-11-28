@@ -115,18 +115,28 @@ clearFields();
         Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this student?").showAndWait();
         if (result.get() == ButtonType.OK) {
 
-            Session session = SessionFactoryConfig.getInstance().getSession();
-            Transaction transaction = session.beginTransaction();
-            StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
+            Session session = null;
+            Student student = null;
+            Transaction transaction = null;
+            try {
+                session = SessionFactoryConfig.getInstance().getSession();
+                transaction = session.beginTransaction();
+                StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
 
-            if (selectedStudent == null) {
-                new Alert(Alert.AlertType.WARNING, "No Student Selected").show();
+                if (selectedStudent == null) {
+                    new Alert(Alert.AlertType.WARNING, "No Student Selected").show();
+                    return;
+                }
+
+                student = session.get(Student.class, selectedStudent.getStudentId());
+                session.delete(student);
+                transaction.commit();
+            } catch (Exception e) {
+                new Alert(Alert.AlertType.ERROR, "Can't Delete this Student as it is in use").showAndWait();
                 return;
             }
 
-            Student student = session.get(Student.class, selectedStudent.getStudentId());
-            session.delete(student);
-            transaction.commit();
+
             session.close();
             new Alert(Alert.AlertType.INFORMATION, "Student Deleted").show();
             loadStudentTable();

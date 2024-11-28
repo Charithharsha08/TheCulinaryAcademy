@@ -153,7 +153,11 @@ public class PaymentManageController {
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-        clearFields();
+        try {
+            clearFields();
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.WARNING, "Please Fill Fields Before Clear").show();
+        }
     }
 
     private void clearFields() {

@@ -43,14 +43,17 @@ public class RegisterFormController {
     void btnRegisterOnAction(ActionEvent event) {
 
         if (isValid()) {
-
+try {
             User user = new User(txtUserName.getText(), txtPassword.getText(), txtJobRole.getText());
             Session userSaveSession = SessionFactoryConfig.getInstance().getSession();
             Transaction userSaveTransaction = userSaveSession.beginTransaction();
             userSaveSession.save(user);
             userSaveTransaction.commit();
             userSaveSession.close();
-
+}catch (Exception e){
+            new Alert(Alert.AlertType.ERROR, "User Already Exists or Invalid Credentials").show();
+            return;
+}
             new Alert(Alert.AlertType.INFORMATION, "User Saved").show();
             Window window = btnRegister.getScene().getWindow();
             Stage stage = (Stage) window;

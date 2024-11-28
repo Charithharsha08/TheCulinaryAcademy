@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class UserTm {
-    private String userId;
     private String userName;
     private String password;
     private String jobRole;
-    private JFXButton btn;
+    private JFXButton action;
+
 }
