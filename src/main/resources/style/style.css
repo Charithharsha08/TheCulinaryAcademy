@@ -17,6 +17,14 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
 
 }
+.add-button{
+    -fx-background-color: #372214;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 12;
+}
+
 .update-button{
     -fx-background-color: lightgreen;
     -fx-background-radius: 10;
@@ -60,8 +68,4 @@
     -fx-background-radius: 10;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
 }
-.table-view .column-header-background{
-    -fx-background-color: #372214;
-    -fx-background-radius: 10;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
-}
+

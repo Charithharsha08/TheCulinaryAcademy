@@ -30,7 +30,7 @@
             <JFXButton buttonType="RAISED" layoutX="307.0" layoutY="23.0" onAction="#btnSearchOnAction" styleClass="login-button" stylesheets="@../style/style.css" text="Search" textFill="#f8f8f8" />
          </children>
       </Pane>
-      <TableView fx:id="tblProgram" layoutX="45.0" layoutY="151.0" onMousePressed="#tblProgramMousePressed" prefHeight="579.0" prefWidth="461.0">
+      <TableView fx:id="tblProgram" layoutX="45.0" layoutY="151.0" onMousePressed="#tblProgramMousePressed" prefHeight="579.0" prefWidth="461.0" stylesheets="@../style/tableStyle.css">
          <columns>
             <TableColumn fx:id="colProgramId" prefWidth="66.76664352416992" text="Program Id" />
             <TableColumn fx:id="colProgramName" prefWidth="120.73335266113281" text="Program Name" />

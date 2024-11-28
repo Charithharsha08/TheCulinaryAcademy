@@ -31,6 +31,7 @@ import java.util.List;
 public class AdminManageController {
 
     public TableColumn <?, ?> colJobRole ;
+    public JFXButton btnSearchAdmin;
     @FXML
     private JFXButton btnusers;
 
@@ -70,6 +71,7 @@ public class AdminManageController {
     public void initialize(){
         setCellValueFactory();
         loadAdminTable();
+        btnSearchAdmin.setVisible(false);
         txtAdminId.setVisible(false);
         txtSearchAdmin.setVisible(false);
     }
