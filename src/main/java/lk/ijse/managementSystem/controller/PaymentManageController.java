@@ -318,7 +318,7 @@ public class PaymentManageController {
 
             new Alert(Alert.AlertType.INFORMATION, "Student : "+ placePaymentBO.getStudent(txtSearchId.getText()).getName() +", selected successfully.").show();
 
-            lblCustomerId.setText(placePaymentBO.getStudent(txtSearchId.getText()).getId());
+            lblCustomerId.setText(String.valueOf(placePaymentBO.getStudent(txtSearchId.getText()).getId()));
             lblCustomerName.setText(placePaymentBO.getStudent(txtSearchId.getText()).getName());
             lblTel.setText(placePaymentBO.getStudent(txtSearchId.getText()).getContact());
             lblDate.setText(currentDate.toString());

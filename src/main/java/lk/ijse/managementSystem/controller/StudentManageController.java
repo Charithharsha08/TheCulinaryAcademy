@@ -172,7 +172,7 @@ clearFields();
                 return;
             }
 
-            isDeleted = studentBO.deleteStudent(selectedStudent.getStudentId());
+            isDeleted = studentBO.deleteStudent(String.valueOf(selectedStudent.getStudentId()));
             if (isDeleted) {
                 new Alert(Alert.AlertType.INFORMATION, "Student Deleted").show();
                 loadStudentTable();
@@ -192,12 +192,12 @@ clearFields();
 
         Student student = session.get(Student.class, txtSearchStudent.getText() );
 
-        if (student == null || student.getId() == null) {
+        if (student == null || student.getId() == 0) {
             new Alert(Alert.AlertType.WARNING, "No Student Found").show();
             return;
         }
 
-        txtStudentId.setText(student.getId());
+        txtStudentId.setText(String.valueOf(student.getId()));
         txtStudentName.setText(student.getName());
         txtAddress.setText(student.getAddress());
         txtMail.setText(student.getEmail());
@@ -229,7 +229,7 @@ clearFields();
             new Alert(Alert.AlertType.INFORMATION, "Student Added").show();*/
 
             StudentDTO student = new StudentDTO(
-                    "1",
+                    1,
                     txtStudentName.getText(),
                     txtAddress.getText(),
                     txtMail.getText(),
@@ -371,7 +371,7 @@ return true;
 
         Student student = session.get(Student.class, selectedStudent.getStudentId() );
 
-        txtStudentId.setText(student.getId());
+        txtStudentId.setText(String.valueOf(student.getId()));
         txtStudentName.setText(student.getName());
         txtAddress.setText(student.getAddress());
         txtMail.setText(student.getEmail());

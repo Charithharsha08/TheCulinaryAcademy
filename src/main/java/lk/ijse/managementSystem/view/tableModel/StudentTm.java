@@ -5,7 +5,7 @@ package lk.ijse.managementSystem.view.tableModel;
 @lombok.NoArgsConstructor
 
 public class StudentTm {
-    String studentId;
+    int studentId;
     String name;
     String address;
     String contact;
