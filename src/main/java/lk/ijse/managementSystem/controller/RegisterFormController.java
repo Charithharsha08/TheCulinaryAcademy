@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import lk.ijse.managementSystem.bo.BOFactory;
+import lk.ijse.managementSystem.bo.custom.UserBO;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
 import lk.ijse.managementSystem.model.User;
 import org.hibernate.Session;
