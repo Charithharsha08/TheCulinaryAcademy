@@ -30,4 +30,9 @@ public class PaymentDAOImpl implements PaymentDAO {
     public boolean delete(String id) throws Exception {
         return false;
     }
+
+    @Override
+    public Payment search(String id) throws Exception {
+        return null;
+    }
 }

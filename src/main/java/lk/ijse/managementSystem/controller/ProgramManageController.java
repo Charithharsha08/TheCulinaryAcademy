@@ -13,7 +13,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import lk.ijse.managementSystem.bo.BOFactory;
+import lk.ijse.managementSystem.bo.custom.CourseBO;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
+import lk.ijse.managementSystem.dto.CourseDTO;
 import lk.ijse.managementSystem.entity.Course;
 import lk.ijse.managementSystem.view.tableModel.CourseTm;
 import org.hibernate.Session;
@@ -56,6 +59,8 @@ public class ProgramManageController {
     private JFXTextField txtSearchProgramm;
     private ObservableList<CourseTm> obList = FXCollections.observableArrayList();
 
+    CourseBO courseBO = (CourseBO) BOFactory.getInstance().getBO(BOFactory.BOType.COURSE);
+
     public void initialize(){
 
         txtSearchProgramm.setVisible(false);
@@ -68,7 +73,7 @@ public class ProgramManageController {
     private void loadProgramTable() {
         tblProgram.getItems().clear();
 
-        List<Course> programList = SessionFactoryConfig.getInstance().getSession().createQuery("FROM Course", Course.class).getResultList();
+       /* List<Course> programList = SessionFactoryConfig.getInstance().getSession().createQuery("FROM Course", Course.class).getResultList();
         for (Course course : programList) {
             CourseTm courseTm = new CourseTm(
                     course.getId(),
@@ -78,7 +83,20 @@ public class ProgramManageController {
             );
             obList.add(courseTm);
         }
-tblProgram.setItems(obList);
+tblProgram.setItems(obList);*/
+
+        List<CourseDTO> courseDTOS = courseBO.getAllCourses();
+        for (CourseDTO courseDTO : courseDTOS) {
+            CourseTm courseTm = new CourseTm(
+                    courseDTO.getId(),
+                    courseDTO.getDescription(),
+                    courseDTO.getDuration(),
+                    courseDTO.getPrice()
+            );
+            obList.add(courseTm);
+        }
+        tblProgram.setItems(obList);
+
     }
 
     private void setCellValueFactory() {
@@ -104,7 +122,7 @@ tblProgram.setItems(obList);
     @FXML
     void btnDeleleProgramOnAction(ActionEvent event) {
 
-        Session session = SessionFactoryConfig.getInstance().getSession();
+        /*Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         CourseTm selectedProgram = tblProgram.getSelectionModel().getSelectedItem();
 
@@ -132,12 +150,29 @@ tblProgram.setItems(obList);
         }else {
             new Alert(Alert.AlertType.INFORMATION, "Program Not Deleted").show();
             clearFields();
+        }*/
+
+        CourseTm selectedProgram = tblProgram.getSelectionModel().getSelectedItem();
+        if (selectedProgram == null) {
+            new Alert(Alert.AlertType.WARNING, "No Program Selected").show();
+            return;
+        }
+        Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this program?").showAndWait();
+        if (result.get() == ButtonType.OK) {
+            boolean isDeleted = courseBO.deleteCourse(selectedProgram.getId());
+            if (!isDeleted) {
+                new Alert(Alert.AlertType.ERROR, "Cannot delete this program this program is assigned to a student").show();
+                return;
+            }
+            new Alert(Alert.AlertType.INFORMATION, "Program Deleted").show();
+            loadProgramTable();
+            clearFields();
         }
     }
 
     @FXML
     void btnProgramAddButtonOnAction(ActionEvent event) {
-        if (isValid()){
+        if (isValid()){/*
 
            Session session = SessionFactoryConfig.getInstance().getSession();
                    Course  course = new Course(1,txtProgramName.getText(),txtDuration.getText(), Double.parseDouble(txtFee.getText()));
@@ -146,7 +181,15 @@ tblProgram.setItems(obList);
                    session.close();
             new Alert(Alert.AlertType.INFORMATION, "Program Added").show();
             loadProgramTable();
-            clearFields();
+            clearFields();*/
+
+            CourseDTO course = new CourseDTO(1,txtProgramName.getText(),txtDuration.getText(), Double.parseDouble(txtFee.getText()));
+            boolean isAdded = courseBO.addCourse(course);
+            if (isAdded) {
+                new Alert(Alert.AlertType.INFORMATION, "Program Added").show();
+                loadProgramTable();
+                clearFields();
+            }
         }
     }
 
@@ -157,7 +200,7 @@ tblProgram.setItems(obList);
 
     @FXML
     void btnUpdateProgramOnAction(ActionEvent event) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
+      /*  Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         CourseTm selectedProgram = tblProgram.getSelectionModel().getSelectedItem();
 
@@ -180,6 +223,22 @@ tblProgram.setItems(obList);
         }else {
             new Alert(Alert.AlertType.INFORMATION, "Program Not Updated").show();
             clearFields();
+        }*/
+
+        CourseTm selectedProgram = tblProgram.getSelectionModel().getSelectedItem();
+        if (selectedProgram == null) {
+            new Alert(Alert.AlertType.WARNING, "No Program Selected").show();
+            return;
+        }
+        Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to update this program?").showAndWait();
+        if (result.get() == ButtonType.OK) {
+            CourseDTO course = new CourseDTO(selectedProgram.getId(),txtProgramName.getText(),txtDuration.getText(), Double.parseDouble(txtFee.getText()));
+            boolean isUpdated = courseBO.updateCourse(course);
+            if (isUpdated) {
+                new Alert(Alert.AlertType.INFORMATION, "Program Updated").show();
+                loadProgramTable();
+                clearFields();
+            }
         }
     }
 

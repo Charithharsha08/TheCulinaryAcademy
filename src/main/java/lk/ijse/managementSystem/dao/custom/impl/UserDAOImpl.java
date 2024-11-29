@@ -46,4 +46,9 @@ public class UserDAOImpl implements UserDAO {
         session.close();
         return true;
     }
+
+    @Override
+    public User search(String id) throws Exception {
+        return null;
+    }
 }

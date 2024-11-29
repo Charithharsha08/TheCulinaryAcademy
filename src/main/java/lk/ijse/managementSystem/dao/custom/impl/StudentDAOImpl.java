@@ -53,4 +53,9 @@ public class StudentDAOImpl implements StudentDAO {
         session.close();
         return true;
     }
+
+    @Override
+    public Student search(String id) throws Exception {
+        return null;
+    }
 }

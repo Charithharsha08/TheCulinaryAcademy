@@ -30,4 +30,9 @@ public class StudentCourseDetailDAOImpl implements StudentCourseDetailDAO {
     public boolean delete(String id) throws Exception {
         return false;
     }
+
+    @Override
+    public StudentCourseDetail search(String id) throws Exception {
+        return null;
+    }
 }
