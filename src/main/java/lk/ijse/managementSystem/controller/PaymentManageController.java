@@ -5,9 +5,13 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import lk.ijse.managementSystem.bo.BOFactory;
 import lk.ijse.managementSystem.bo.custom.CourseBO;
 import lk.ijse.managementSystem.bo.custom.PlacePaymentBO;
@@ -20,6 +24,7 @@ import lk.ijse.managementSystem.dto.StudentDTO;
 import lk.ijse.managementSystem.view.tableModel.CartTm;
 import org.hibernate.Session;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
@@ -221,8 +226,23 @@ public class PaymentManageController {
 
     @FXML
     void btncreateNewCustomerOnAction(ActionEvent event) {
+        Parent rootNode = null;
+        try {
+            rootNode = FXMLLoader.load(this.getClass().getResource("/view/register-form.fxml"));
+        } catch (IOException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
 
+        }
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+
+        stage.setTitle("Payment Form");
+        stage.centerOnScreen();
+
+        stage.show();
     }
+
 
     @FXML
     void cmbPaymentTypeOnAction(ActionEvent event) {

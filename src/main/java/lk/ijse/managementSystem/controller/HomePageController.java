@@ -2,7 +2,10 @@ package lk.ijse.managementSystem.controller;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import lk.ijse.managementSystem.bo.BOFactory;
+import lk.ijse.managementSystem.bo.custom.HomeBO;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
+import lk.ijse.managementSystem.dto.StudentDTO;
 import lk.ijse.managementSystem.entity.Course;
 import lk.ijse.managementSystem.entity.Payment;
 import lk.ijse.managementSystem.entity.Student;
@@ -32,21 +35,22 @@ public class HomePageController {
     }
 
     private void setCounts() {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        try {
+//        Session session = SessionFactoryConfig.getInstance().getSession();
+//        try {
+//
+//            studentList = session.createQuery("FROM Student", Student.class).getResultList();
+//             paymentList = session.createQuery("FROM Payment", Payment.class).getResultList();
+//             programList = session.createQuery("FROM Course", Course.class).getResultList();
+//             userList = session.createQuery("FROM User", User.class).getResultList();
+//            lblStudentCount.setText(String.valueOf(studentList.size()));
+//            lblPaymentCount.setText(String.valueOf(paymentList.size()));
+//            lblCourseCount.setText(String.valueOf(programList.size()));
+//            lblUsersCount.setText(String.valueOf(userList.size()));
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            new Alert(Alert.AlertType.ERROR, "Error: " + e.getMessage()).showAndWait();
+//        }
 
-            studentList = session.createQuery("FROM Student", Student.class).getResultList();
-             paymentList = session.createQuery("FROM Payment", Payment.class).getResultList();
-             programList = session.createQuery("FROM Course", Course.class).getResultList();
-             userList = session.createQuery("FROM User", User.class).getResultList();
-            lblStudentCount.setText(String.valueOf(studentList.size()));
-            lblPaymentCount.setText(String.valueOf(paymentList.size()));
-            lblCourseCount.setText(String.valueOf(programList.size()));
-            lblUsersCount.setText(String.valueOf(userList.size()));
-        }catch (Exception e){
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Error: " + e.getMessage()).showAndWait();
-        }
 
 
     }

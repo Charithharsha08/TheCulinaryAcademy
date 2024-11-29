@@ -7,6 +7,7 @@ import lk.ijse.managementSystem.dao.DAOFactory;
 import lk.ijse.managementSystem.dao.custom.StudentDAO;
 import lk.ijse.managementSystem.dto.StudentDTO;
 import lk.ijse.managementSystem.entity.Student;
+import lk.ijse.managementSystem.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class StudentBOImpl implements StudentBO {
                     studentDTO.getAddress(),
                     studentDTO.getEmail(),
                     studentDTO.getContact(),
-                    LoginFormController.user
+                    studentDTO.getUser()
             ));
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Already Exists user or Invalid Credentials").show();
@@ -45,7 +46,7 @@ public class StudentBOImpl implements StudentBO {
                         student.getAddress(),
                         student.getEmail(),
                         student.getContact(),
-                        LoginFormController.user
+                        student.getUser()
                 ));
             }
         } catch (Exception e) {
@@ -68,7 +69,7 @@ public class StudentBOImpl implements StudentBO {
                 dto.getAddress(),
                 dto.getEmail(),
                 dto.getContact(),
-                LoginFormController.user
+                dto.getUser()
             ));
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR,"Something went wrong please try again later").show();

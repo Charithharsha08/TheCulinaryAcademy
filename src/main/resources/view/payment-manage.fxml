@@ -58,7 +58,7 @@
          <columns>
             <TableColumn fx:id="colId" prefWidth="75.0" text="Id" />
             <TableColumn fx:id="colCustomerName" prefWidth="132.0" text="Customer Name" />
-            <TableColumn fx:id="colDescription" prefWidth="202.14959716796875" text="Description" />
+            <TableColumn fx:id="colDescription" minWidth="30.0" prefWidth="202.14959716796875" text="Description" />
             <TableColumn fx:id="colDiscount" prefWidth="109.21420288085938" text="Discount" />
             <TableColumn fx:id="colTotal" minWidth="20.0" prefWidth="143.08648681640625" text="Total" />
             <TableColumn fx:id="colAction" minWidth="30.0" prefWidth="202.4134521484375" text="Action" />

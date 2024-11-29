@@ -45,15 +45,14 @@ public class DashboardController {
     private JFXButton selectedButton;
 
     public void initialize() {
-        //checkAvailability();
+        checkAvailability();
         loadPane("/view/home-page.fxml", btnHome);
     }
 
     private void checkAvailability() {
-        if (LoginFormController.user.getJobRole() == "USER") {
+        if (LoginFormController.user.getJobRole().equals( "USER")) {
             btnPayment.setDisable(false);
             btnAdmin.setDisable(false);
-            new Alert(Alert.AlertType.ERROR, "You are not allowed to access this page").show();
         } else {
             btnPayment.setDisable(true);
             btnAdmin.setDisable(true);

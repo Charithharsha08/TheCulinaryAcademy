@@ -13,7 +13,10 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.managementSystem.bo.BOFactory;
+import lk.ijse.managementSystem.bo.custom.UserBO;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
+import lk.ijse.managementSystem.dto.UserDTO;
 import lk.ijse.managementSystem.entity.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -38,6 +41,8 @@ public class LoginFormController {
     private JFXTextField txtUserName;
 
     public static User user = null;
+
+    UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     @FXML
     void OnKeyReleaserUsername(KeyEvent event) {
@@ -97,12 +102,14 @@ public class LoginFormController {
 
     public boolean checkCredentials(){
         Session session = null;
+
         try {
          session = SessionFactoryConfig.getInstance().getSession();
          user = session.get(User.class,txtUserName.getText());
         if (user != null && user.getPassword().equals(txtPassword.getText())) {
             return true;
-        }else {
+        }
+        else {
             new Alert(Alert.AlertType.ERROR, "Invalid username or password").show();
             return false;
         }
@@ -111,9 +118,14 @@ e.printStackTrace();
 }finally {
             txtUserName.clear();
             txtPassword.clear();
+            if (session == null) {
+                new Alert(Alert.AlertType.ERROR, "User Not Found please register First").show();
+                return false;
+            }
             session.close();
         }
         return false;
+
     }
 
     public void hyperLinkForgetPasswordOnAction(ActionEvent actionEvent) {

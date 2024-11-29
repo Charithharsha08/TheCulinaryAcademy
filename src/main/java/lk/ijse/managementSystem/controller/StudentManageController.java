@@ -17,6 +17,7 @@ import lk.ijse.managementSystem.bo.BOFactory;
 import lk.ijse.managementSystem.bo.custom.StudentBO;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
 import lk.ijse.managementSystem.dto.StudentDTO;
+import lk.ijse.managementSystem.dto.UserDTO;
 import lk.ijse.managementSystem.entity.Student;
 import lk.ijse.managementSystem.entity.User;
 import lk.ijse.managementSystem.view.tableModel.StudentTm;
