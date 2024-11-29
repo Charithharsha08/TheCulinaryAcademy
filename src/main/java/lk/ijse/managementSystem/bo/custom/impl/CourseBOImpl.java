@@ -2,11 +2,9 @@ package lk.ijse.managementSystem.bo.custom.impl;
 
 import javafx.scene.control.Alert;
 import lk.ijse.managementSystem.bo.custom.CourseBO;
-import lk.ijse.managementSystem.controller.LoginFormController;
 import lk.ijse.managementSystem.dao.DAOFactory;
 import lk.ijse.managementSystem.dao.custom.CourseDAO;
 import lk.ijse.managementSystem.dto.CourseDTO;
-import lk.ijse.managementSystem.dto.StudentDTO;
 import lk.ijse.managementSystem.entity.Course;
 
 import java.util.ArrayList;
