@@ -12,7 +12,7 @@ import java.util.List;
 
 public class UserBOImpl implements UserBO {
 
-    UserDAO userDAO = (UserDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.USER);
+    UserDAO userDAO = (UserDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.USER);
     @Override
     public List<UserDTO> getAllUsers() {
         List<UserDTO> userDTOS = new ArrayList<>();

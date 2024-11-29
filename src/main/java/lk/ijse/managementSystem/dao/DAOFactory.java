@@ -17,13 +17,13 @@ public class DAOFactory {
         studentCourseDetailDAO = new StudentCourseDetailDAOImpl();
         userDAO = new UserDAOImpl();
     }
-    public enum DAOType{
+    public enum DAOTypes {
         USER,STUDENT,COURSE,PAYMENT,STUDENT_COURSE_DETAIL
     }
     public static DAOFactory getInstance(){
         return daoFactory = daoFactory == null ? new DAOFactory() : daoFactory;
     }
-    public CrudDAO getDAO(DAOType type){
+    public CrudDAO getDAO(DAOTypes type){
         return switch (type){
             case USER -> userDAO;
             case STUDENT -> studentDAO;

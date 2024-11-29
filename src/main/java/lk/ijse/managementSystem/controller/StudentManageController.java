@@ -13,7 +13,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import lk.ijse.managementSystem.bo.BOFactory;
+import lk.ijse.managementSystem.bo.custom.StudentBO;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
+import lk.ijse.managementSystem.dto.StudentDTO;
 import lk.ijse.managementSystem.entity.Student;
 import lk.ijse.managementSystem.entity.User;
 import lk.ijse.managementSystem.view.tableModel.StudentTm;
@@ -65,6 +68,8 @@ public class StudentManageController {
 
     private ObservableList<StudentTm> obList = FXCollections.observableArrayList();
 
+    StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBO(BOFactory.BOType.STUDENT);
+
     public void initialize(){
 
         txtStudentId.setVisible(false);
@@ -76,7 +81,7 @@ public class StudentManageController {
 
     private void loadStudentTable() {
         tblStudent.getItems().clear();
-        Session session = SessionFactoryConfig.getInstance().getSession();
+       /* Session session = SessionFactoryConfig.getInstance().getSession();
 
         List<Student> studentList = session.createQuery("FROM Student", Student.class).getResultList();
         for (Student student : studentList) {
@@ -88,6 +93,17 @@ public class StudentManageController {
             obList.addAll(studentTm);
         }
         System.out.println(studentList.size());
+        tblStudent.setItems(obList);*/
+
+        List<StudentDTO> studentDTOS = studentBO.getAllStudents();
+        for (StudentDTO studentDTO : studentDTOS) {
+            StudentTm studentTm = new StudentTm(
+                    studentDTO.getId(),
+                    studentDTO.getName(),
+                    studentDTO.getAddress(),
+                    studentDTO.getContact());
+            obList.addAll(studentTm);
+        }
         tblStudent.setItems(obList);
     }
 
@@ -116,9 +132,10 @@ clearFields();
     @FXML
     void btnDeleleStudentOnAction(ActionEvent event) {
         Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this student?").showAndWait();
+        boolean isDeleted = false;
         if (result.get() == ButtonType.OK) {
 
-            Session session = null;
+            /*Session session = null;
             Student student = null;
             Transaction transaction = null;
             try {
@@ -146,7 +163,24 @@ clearFields();
             clearFields();
         }else {
             new Alert(Alert.AlertType.INFORMATION, "Student Not Deleted").show();
-            clearFields();
+            clearFields();*/
+
+            StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
+            if (selectedStudent == null) {
+                new Alert(Alert.AlertType.WARNING, "No Student Selected").show();
+                return;
+            }
+
+            isDeleted = studentBO.deleteStudent(selectedStudent.getStudentId());
+            if (isDeleted) {
+                new Alert(Alert.AlertType.INFORMATION, "Student Deleted").show();
+                loadStudentTable();
+                clearFields();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Can't Delete this Student as it is in use").showAndWait();
+            }
+
+
         }
     }
 
@@ -177,7 +211,7 @@ clearFields();
     void btnStudentAddButtonOnAction(ActionEvent event) {
         if (isValid()){
 
-            Session session = SessionFactoryConfig.getInstance().getSession();
+           /* Session session = SessionFactoryConfig.getInstance().getSession();
             Student student = new Student(
                     "1",
                     txtStudentName.getText(),
@@ -191,12 +225,29 @@ clearFields();
             session.close();
             loadStudentTable();
             clearFields();
-            new Alert(Alert.AlertType.INFORMATION, "Student Added").show();
+            new Alert(Alert.AlertType.INFORMATION, "Student Added").show();*/
+
+            StudentDTO student = new StudentDTO(
+                    "1",
+                    txtStudentName.getText(),
+                    txtAddress.getText(),
+                    txtMail.getText(),
+                    txtTel.getText(),
+                    currentUser);
+
+           boolean isAdded = studentBO.addStudent(student);
+           if (isAdded) {
+               new Alert(Alert.AlertType.INFORMATION, "Student Added").show();
+               loadStudentTable();
+               clearFields();
+           } else {
+               new Alert(Alert.AlertType.ERROR, "Student Already Exists or Invalid Credentials").show();
+           }
         }
     }
     @FXML
     void btnUpdateStudentOnAction(ActionEvent event) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
+       /* Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
 
@@ -214,7 +265,27 @@ clearFields();
         session.close();
         new Alert(Alert.AlertType.INFORMATION, "Student Updated").show();
         loadStudentTable();
-        clearFields();
+        clearFields();*/
+        StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
+        if (selectedStudent == null) {
+            new Alert(Alert.AlertType.WARNING, "No Student Selected").show();
+            return;
+        }
+        StudentDTO student = new StudentDTO(
+                selectedStudent.getStudentId(),
+                txtStudentName.getText(),
+                txtAddress.getText(),
+                txtMail.getText(),
+                txtTel.getText(),
+                currentUser);
+        boolean isUpdated = studentBO.updateStudent(student);
+        if (isUpdated) {
+            new Alert(Alert.AlertType.INFORMATION, "Student Updated").show();
+            loadStudentTable();
+            clearFields();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Student Already Exists or Invalid Credentials").show();
+        }
 
     }
 
