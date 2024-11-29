@@ -9,7 +9,7 @@ public class BOFactory implements SuperBo {
     private static PlacePaymentBOImpl placePaymentBo;
     private static UserBOImpl userBO;
     private static PaymentBOImpl paymentBO;
-    private static DashboardBOImpl dashboardBo;
+    private static HomeBOImpl dashboardBo;
 
     private BOFactory(){
         userBO = new UserBOImpl();
@@ -17,7 +17,7 @@ public class BOFactory implements SuperBo {
         courseBo = new CourseBOImpl();
         placePaymentBo = new PlacePaymentBOImpl();
         paymentBO = new PaymentBOImpl();
-        dashboardBo = new DashboardBOImpl();
+        dashboardBo = new HomeBOImpl();
     }
 
     public static BOFactory getInstance(){

@@ -1,4 +1,4 @@
-package lk.ijse.managementSystem.model.tableModel;
+package lk.ijse.managementSystem.view.tableModel;
 
 @lombok.AllArgsConstructor
 @lombok.Data

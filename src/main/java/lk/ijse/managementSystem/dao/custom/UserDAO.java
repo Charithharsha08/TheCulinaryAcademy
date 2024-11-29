@@ -1,4 +1,8 @@
 package lk.ijse.managementSystem.dao.custom;
 
-public interface UserDAO {
+import lk.ijse.managementSystem.dao.CrudDAO;
+import lk.ijse.managementSystem.entity.User;
+
+public interface UserDAO extends CrudDAO<User> {
+
 }

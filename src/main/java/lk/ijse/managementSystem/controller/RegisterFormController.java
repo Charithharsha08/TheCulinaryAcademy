@@ -7,10 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import lk.ijse.managementSystem.bo.BOFactory;
-import lk.ijse.managementSystem.bo.custom.UserBO;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
-import lk.ijse.managementSystem.model.User;
+import lk.ijse.managementSystem.entity.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -85,7 +83,7 @@ txtPassword.requestFocus();
     public void txtJobRoleOnAction(ActionEvent actionEvent) {
     }
     public  boolean isValid(){
-        if(txtUserId.getText().isEmpty() || txtUserName.getText().isEmpty() || txtPassword.getText().isEmpty() || txtJobRole.getText().isEmpty()){
+        if( txtUserName.getText().isEmpty() || txtPassword.getText().isEmpty() || txtJobRole.getText().isEmpty()){
             new Alert(Alert.AlertType.ERROR, "Please fill all the fields").show();
             return false;
         }

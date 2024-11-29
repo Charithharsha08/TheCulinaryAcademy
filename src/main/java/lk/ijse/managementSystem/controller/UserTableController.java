@@ -12,10 +12,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import lk.ijse.managementSystem.bo.BOFactory;
+import lk.ijse.managementSystem.bo.custom.UserBO;
+import lk.ijse.managementSystem.bo.custom.impl.UserBOImpl;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
-import lk.ijse.managementSystem.model.Course;
-import lk.ijse.managementSystem.model.User;
-import lk.ijse.managementSystem.model.tableModel.UserTm;
+import lk.ijse.managementSystem.dto.UserDTO;
+import lk.ijse.managementSystem.entity.User;
+import lk.ijse.managementSystem.view.tableModel.UserTm;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -46,32 +49,29 @@ public class UserTableController {
     private TableView<UserTm> tblUsers;
     ObservableList<UserTm> obList = FXCollections.observableArrayList();
 
+    UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
+
     public void initialize(){
         setCellValueFactory();
         loadUsersTable();
     }
 
     private void loadUsersTable() {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        tblUsers.getItems().clear();
-         List<User> userList = session.createQuery("FROM User", User.class).getResultList();
-         for (User user : userList) {
-             UserTm userTm = new UserTm(
-                     user.getUserName(),
-                     user.getPassword(),
-                     user.getJobRole(),
-                     createRemoveButton(user));
-             if (user.getJobRole().equals("USER")) {
-                 obList.add(userTm);
-             }
-
-         }
-         tblUsers.setItems(obList);
-
+        List<UserDTO> userList = userBO.getAllUsers();
+        for (UserDTO user : userList) {
+            UserTm userTm = new UserTm(
+                    user.getUsername(),
+                    user.getPassword(),
+                    user.getJobRole(),
+                    createRemoveButton(user));
+            if (user.getJobRole().equals("USER")) {
+                obList.add(userTm);
+            }
+        }
+        tblUsers.setItems(obList);
     }
 
     private void setCellValueFactory() {
-       // colUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
         colUserName.setCellValueFactory(new PropertyValueFactory<>("userName"));
         colPassword.setCellValueFactory(new PropertyValueFactory<>("password") );
         colJobRole.setCellValueFactory(new PropertyValueFactory<>("jobRole"));
@@ -86,7 +86,7 @@ public class UserTableController {
         stage.close();
     }
 
-    private JFXButton createRemoveButton(User user) {
+    private JFXButton createRemoveButton(UserDTO user) {
         JFXButton remove = new JFXButton("Remove");
         remove.setStyle("-fx-background-color: #ff0000; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius:0;");
         remove.setOnAction(event -> {
@@ -94,22 +94,24 @@ public class UserTableController {
                 new Alert(Alert.AlertType.INFORMATION, "Please select a user first").show();
                 return;
             }
+            if (tblUsers.getSelectionModel().getSelectedItem().getUserName().equals(LoginFormController.user.getUserName())) {
+                new Alert(Alert.AlertType.ERROR, "Logged User Cannot be deleted, Please Create New User And Login Then Delete").show();
+                return;
+            }
             Optional<ButtonType> buttonType = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to remove this course?", ButtonType.YES, ButtonType.NO).showAndWait();
             if (buttonType.get() == ButtonType.YES) {
-                Session session = null;
-                try {
-                    session = SessionFactoryConfig.getInstance().getSession();
-                    Transaction transaction = session.beginTransaction();
-                    session.delete(user);
-                    transaction.commit();
-                } catch (Exception e) {
-                    new Alert(Alert.AlertType.ERROR, "Logged User Cannot be deleted, Please Create New User And Login Then Delete").show();
-                    tblUsers.getItems().remove(tblUsers.getSelectionModel().getSelectedItem());
-                } finally {
-                    session.close();
-                     loadUsersTable();
-                }
 
+                try {
+                    boolean isRemoved = userBO.removeUser(user.getUsername());
+
+                    if (isRemoved) {
+                        tblUsers.getItems().remove(tblUsers.getSelectionModel().getSelectedItem());
+                        new Alert(Alert.AlertType.INFORMATION, "User Deleted").show();
+                    }
+                }catch (Exception e){
+                    new Alert(Alert.AlertType.ERROR, "Something went wrong Please try again Later").show();
+
+                }
             }
         });
         return remove;

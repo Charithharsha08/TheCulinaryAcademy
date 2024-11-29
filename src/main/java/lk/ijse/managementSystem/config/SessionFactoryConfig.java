@@ -1,11 +1,10 @@
 package lk.ijse.managementSystem.config;
 
-import lk.ijse.managementSystem.model.*;
+import lk.ijse.managementSystem.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
 
 /**
  * This is the session factory configuration class

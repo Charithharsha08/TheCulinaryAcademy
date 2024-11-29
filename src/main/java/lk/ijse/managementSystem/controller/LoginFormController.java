@@ -14,7 +14,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
-import lk.ijse.managementSystem.model.User;
+import lk.ijse.managementSystem.entity.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 

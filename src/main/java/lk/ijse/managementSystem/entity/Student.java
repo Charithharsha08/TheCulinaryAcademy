@@ -1,8 +1,4 @@
-package lk.ijse.managementSystem.model;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+package lk.ijse.managementSystem.entity;
 
 import javax.persistence.*;
 

@@ -1,6 +1,6 @@
 package lk.ijse.managementSystem.dto;
 
-import lk.ijse.managementSystem.model.User;
+import lk.ijse.managementSystem.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

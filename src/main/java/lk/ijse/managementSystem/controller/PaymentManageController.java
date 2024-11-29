@@ -8,18 +8,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
-import lk.ijse.managementSystem.model.Course;
-import lk.ijse.managementSystem.model.Payment;
-import lk.ijse.managementSystem.model.Student;
-import lk.ijse.managementSystem.model.StudentCourseDetail;
-import lk.ijse.managementSystem.model.tableModel.CartTm;
+import lk.ijse.managementSystem.entity.Course;
+import lk.ijse.managementSystem.entity.Payment;
+import lk.ijse.managementSystem.entity.Student;
+import lk.ijse.managementSystem.entity.StudentCourseDetail;
+import lk.ijse.managementSystem.view.tableModel.CartTm;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 

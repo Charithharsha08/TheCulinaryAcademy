@@ -3,10 +3,10 @@ package lk.ijse.managementSystem.controller;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
-import lk.ijse.managementSystem.model.Course;
-import lk.ijse.managementSystem.model.Payment;
-import lk.ijse.managementSystem.model.Student;
-import lk.ijse.managementSystem.model.User;
+import lk.ijse.managementSystem.entity.Course;
+import lk.ijse.managementSystem.entity.Payment;
+import lk.ijse.managementSystem.entity.Student;
+import lk.ijse.managementSystem.entity.User;
 import org.hibernate.Session;
 
 import java.sql.Timestamp;

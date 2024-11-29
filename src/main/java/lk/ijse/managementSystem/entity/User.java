@@ -1,6 +1,5 @@
-package lk.ijse.managementSystem.model;
+package lk.ijse.managementSystem.entity;
 
-import com.jfoenix.controls.JFXButton;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

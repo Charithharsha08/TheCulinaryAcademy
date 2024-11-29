@@ -9,7 +9,7 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
-import lk.ijse.managementSystem.model.User;
+import lk.ijse.managementSystem.entity.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

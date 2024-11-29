@@ -14,9 +14,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
-import lk.ijse.managementSystem.model.Student;
-import lk.ijse.managementSystem.model.User;
-import lk.ijse.managementSystem.model.tableModel.StudentTm;
+import lk.ijse.managementSystem.entity.Student;
+import lk.ijse.managementSystem.entity.User;
+import lk.ijse.managementSystem.view.tableModel.StudentTm;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

@@ -19,9 +19,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
-import lk.ijse.managementSystem.model.User;
-import lk.ijse.managementSystem.model.tableModel.AdminTm;
-import lk.ijse.managementSystem.model.tableModel.UserTm;
+import lk.ijse.managementSystem.entity.User;
+import lk.ijse.managementSystem.view.tableModel.AdminTm;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

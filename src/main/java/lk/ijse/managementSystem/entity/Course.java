@@ -1,4 +1,4 @@
-package lk.ijse.managementSystem.model;
+package lk.ijse.managementSystem.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
