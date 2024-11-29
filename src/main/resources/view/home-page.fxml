@@ -14,7 +14,7 @@
             <Font name="Montserrat ExtraBold" size="44.0" />
          </font>
       </Label>
-      <ImageView fitHeight="424.0" fitWidth="488.0" layoutX="448.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="424.0" fitWidth="488.0" layoutX="505.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/chef-art.png" />
          </image>

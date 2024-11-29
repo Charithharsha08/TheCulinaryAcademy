@@ -7,7 +7,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import lk.ijse.managementSystem.bo.BOFactory;
+import lk.ijse.managementSystem.bo.custom.UserBO;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
+import lk.ijse.managementSystem.dto.UserDTO;
 import lk.ijse.managementSystem.entity.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -30,6 +33,8 @@ public class RegisterFormController {
 
     @FXML
     private JFXTextField txtUserName;
+
+    UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
     public void initialize() {
         txtUserId.setVisible(false);
     }
@@ -46,21 +51,34 @@ public class RegisterFormController {
     void btnRegisterOnAction(ActionEvent event) {
 
         if (isValid()) {
-try {
+         /*   try {
             User user = new User(txtUserName.getText(), txtPassword.getText(), txtJobRole.getText());
             Session userSaveSession = SessionFactoryConfig.getInstance().getSession();
             Transaction userSaveTransaction = userSaveSession.beginTransaction();
             userSaveSession.save(user);
             userSaveTransaction.commit();
             userSaveSession.close();
-}catch (Exception e){
+        }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, "User Already Exists or Invalid Credentials").show();
             return;
-}
+        }
             new Alert(Alert.AlertType.INFORMATION, "User Saved").show();
             Window window = btnRegister.getScene().getWindow();
             Stage stage = (Stage) window;
-            stage.close();
+            stage.close();*/
+
+
+            UserDTO userDTO = new UserDTO(txtUserName.getText(), txtPassword.getText(), txtJobRole.getText());
+             boolean isSaved = userBO.addUser(userDTO);
+
+             if (isSaved) {
+                 new Alert(Alert.AlertType.INFORMATION, "User Saved").show();
+                 Window window = btnRegister.getScene().getWindow();
+                 Stage stage = (Stage) window;
+                 stage.close();
+             } else {
+                 new Alert(Alert.AlertType.ERROR, "User Already Exists or Invalid Credentials").show();
+             }
         }
     }
 

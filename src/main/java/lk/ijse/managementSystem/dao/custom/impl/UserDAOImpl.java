@@ -19,7 +19,12 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean add(User entity) throws Exception {
-        return false;
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(entity);
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override

@@ -32,7 +32,12 @@ public class UserBOImpl implements UserBO {
 
     @Override
     public boolean addUser(UserDTO userDTO) {
-return false;
+        try {
+            return userDAO.add(new User(userDTO.getUsername(),userDTO.getPassword(),userDTO.getJobRole()));
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Already Exists user Please try again").show();
+            return false;
+        }
     }
 
     @Override

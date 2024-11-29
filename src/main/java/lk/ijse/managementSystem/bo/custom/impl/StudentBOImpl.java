@@ -27,7 +27,8 @@ public class StudentBOImpl implements StudentBO {
                     LoginFormController.user
             ));
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            new Alert(Alert.AlertType.ERROR, "Already Exists user or Invalid Credentials").show();
+            return false;
 
         }
     }
@@ -48,7 +49,7 @@ public class StudentBOImpl implements StudentBO {
                 ));
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            new Alert(Alert.AlertType.ERROR,"Something went wrong please try again later").show();
         }
         return studentDTOS;
     }
@@ -70,7 +71,8 @@ public class StudentBOImpl implements StudentBO {
                 LoginFormController.user
             ));
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            new Alert(Alert.AlertType.ERROR,"Something went wrong please try again later").show();
+            return false;
         }
     }
 
@@ -79,7 +81,8 @@ public class StudentBOImpl implements StudentBO {
         try {
             return studentDAO.delete(id);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            new Alert(Alert.AlertType.ERROR, "This student is in use and cannot be deleted").show();
+            return false;
         }
     }
 }
