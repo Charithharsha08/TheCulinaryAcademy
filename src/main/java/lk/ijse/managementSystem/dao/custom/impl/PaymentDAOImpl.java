@@ -2,6 +2,7 @@ package lk.ijse.managementSystem.dao.custom.impl;
 
 import lk.ijse.managementSystem.dao.custom.PaymentDAO;
 import lk.ijse.managementSystem.entity.Payment;
+import org.hibernate.Session;
 
 import java.util.List;
 
@@ -34,5 +35,10 @@ public class PaymentDAOImpl implements PaymentDAO {
     @Override
     public Payment search(String id) throws Exception {
         return null;
+    }
+
+    @Override
+    public void addTransaction(Session session, Payment obj) {
+        session.save(obj);
     }
 }

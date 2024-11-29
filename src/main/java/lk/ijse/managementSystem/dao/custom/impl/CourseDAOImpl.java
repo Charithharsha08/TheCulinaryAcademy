@@ -53,7 +53,10 @@ public class CourseDAOImpl implements CourseDAO {
     }
 
     @Override
-    public Course search(String id) throws Exception {
-      return null;
+    public Course search(String description) throws Exception {
+      session = SessionFactoryConfig.getInstance().getSession();
+      Course course = session.createQuery("FROM Course WHERE course_desc = :id", Course.class).setParameter("id", description).uniqueResult();
+      session.close();
+      return course;
     }
 }

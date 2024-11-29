@@ -56,6 +56,9 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student search(String id) throws Exception {
-        return null;
+        session = SessionFactoryConfig.getInstance().getSession();
+        Student student = session.createQuery("FROM Student WHERE student_contact = :id", Student.class).setParameter("id", id).uniqueResult();
+        session.close();
+        return student;
     }
 }

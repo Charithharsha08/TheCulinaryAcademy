@@ -6,15 +6,19 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.managementSystem.bo.BOFactory;
+import lk.ijse.managementSystem.bo.custom.CourseBO;
+import lk.ijse.managementSystem.bo.custom.PlacePaymentBO;
+import lk.ijse.managementSystem.bo.custom.StudentBO;
 import lk.ijse.managementSystem.config.SessionFactoryConfig;
-import lk.ijse.managementSystem.entity.Course;
-import lk.ijse.managementSystem.entity.Payment;
-import lk.ijse.managementSystem.entity.Student;
-import lk.ijse.managementSystem.entity.StudentCourseDetail;
+import lk.ijse.managementSystem.dto.CourseDTO;
+import lk.ijse.managementSystem.dto.PaymentDTO;
+import lk.ijse.managementSystem.dto.StudentCourseDetailDTO;
+import lk.ijse.managementSystem.dto.StudentDTO;
 import lk.ijse.managementSystem.view.tableModel.CartTm;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -89,8 +93,13 @@ public class PaymentManageController {
     Date currentDate = new Date(System.currentTimeMillis());
     Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
 
-    Course selectedCourse = null;
-    Student selectedStudent = null;
+    PlacePaymentBO placePaymentBO = (PlacePaymentBO) BOFactory.getInstance().getBO(BOFactory.BOType.PLACEPAYMENT);
+    StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBO(BOFactory.BOType.STUDENT);
+    CourseBO courseBO = (CourseBO) BOFactory.getInstance().getBO(BOFactory.BOType.COURSE);
+
+
+    CourseDTO selectedCourse = null;
+    StudentDTO selectedStudent = null;
 
     double total = 00.00;
 
@@ -108,7 +117,7 @@ public class PaymentManageController {
     }
 
     private void loadCources() {
-        Session session = SessionFactoryConfig.getInstance().getSession();
+       /* Session session = SessionFactoryConfig.getInstance().getSession();
 
         List<Course> programList = session.createQuery("FROM Course", Course.class).getResultList();
 
@@ -116,7 +125,15 @@ public class PaymentManageController {
 
         for (Course course : programList) {
             cmbSelectedProgramme.getItems().add(course.getDescription());
+        }*/
+
+        List<CourseDTO> courseDTOS = courseBO.getAllCourses();
+        cmbSelectedProgramme.getItems().clear();
+        for (CourseDTO courseDTO : courseDTOS) {
+            cmbSelectedProgramme.getItems().add(courseDTO.getDescription());
         }
+
+
     }
 
     private void setCellValueFactory() {
@@ -182,7 +199,7 @@ public class PaymentManageController {
     @FXML
     void btnPlacePaymentOnAction(ActionEvent event) {
         if (checkDetails()) {
-            Session session = SessionFactoryConfig.getInstance().getSession();
+          /*  Session session = SessionFactoryConfig.getInstance().getSession();
             Transaction transaction = session.beginTransaction();
 
             StudentCourseDetail studentCourseDetail = new StudentCourseDetail(1, currentDate, selectedStudent, selectedCourse);
@@ -194,7 +211,10 @@ public class PaymentManageController {
             session.close();
 
             new Alert(Alert.AlertType.INFORMATION, "Payment Done Successfully").show();
-
+*/
+            StudentCourseDetailDTO studentCourseDetail = new StudentCourseDetailDTO(1, currentDate, selectedStudent, selectedCourse);
+            PaymentDTO paymentDTO = new PaymentDTO(1, cmbPaymentType.getValue(), currentTimestamp, Double.parseDouble(txtAmount.getText()), total, studentCourseDetail);
+             placePaymentBO.placePayment(studentCourseDetail,paymentDTO);
         }
 
     }
@@ -218,9 +238,9 @@ public class PaymentManageController {
     void cmbSelectedCourceOnAction(ActionEvent event) {
        String selectedProgramme = cmbSelectedProgramme.getValue();
 
-       try {
+       /*try {
            Session session = SessionFactoryConfig.getInstance().getSession();
-           selectedCourse = session.createQuery("FROM Course WHERE description = :desc", Course.class)
+           selectedCourse = session.createQuery("FROM Course WHERE description = :desc", CourseDTO.class)
                    .setParameter("desc", selectedProgramme)
                    .uniqueResult();
            System.out.println(selectedCourse);
@@ -230,7 +250,16 @@ public class PaymentManageController {
 
        } catch (Exception e) {
            e.printStackTrace();
-       }
+       }*/
+
+        try {
+            selectedCourse = placePaymentBO.getCourse(selectedProgramme);
+            lblSelectedCourceCost.setText(String.valueOf(selectedCourse.getPrice()));
+            lblProgramId.setText(String.valueOf(selectedCourse.getId()));
+            lblDuration.setText(selectedCourse.getDuration());
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.WARNING, "No Course Found").show();
+        }
 
 
     }
@@ -244,8 +273,8 @@ public class PaymentManageController {
     void txtSearchIdOnAction(ActionEvent event) {
 
         Session session = SessionFactoryConfig.getInstance().getSession();
-        try {
-        selectedStudent = session.createQuery("FROM Student WHERE contact = :student_contact", Student.class)
+       /* try {
+        selectedStudent = session.createQuery("FROM Student WHERE contact = :student_contact", StudentDTO.class)
                 .setParameter("student_contact", txtSearchId.getText())
                 .uniqueResult();
 
@@ -263,7 +292,24 @@ public class PaymentManageController {
         }finally {
             session.close();
 
+        }*/
+        try {
+            selectedStudent = placePaymentBO.getStudent(txtSearchId.getText());
+
+            new Alert(Alert.AlertType.INFORMATION, "Student : "+ placePaymentBO.getStudent(txtSearchId.getText()).getName() +", selected successfully.").show();
+
+            lblCustomerId.setText(placePaymentBO.getStudent(txtSearchId.getText()).getId());
+            lblCustomerName.setText(placePaymentBO.getStudent(txtSearchId.getText()).getName());
+            lblTel.setText(placePaymentBO.getStudent(txtSearchId.getText()).getContact());
+            lblDate.setText(currentDate.toString());
+            lblTime.setText(currentTimestamp.toString());
+
+        }catch (Exception e) {
+            new Alert(Alert.AlertType.WARNING, "No Student Found").show();
+
         }
+
+
 
     }
 
@@ -283,7 +329,7 @@ public class PaymentManageController {
         return true;
     }
 
-    private JFXButton createRemoveButton(Course course) {
+    private JFXButton createRemoveButton(CourseDTO course) {
         JFXButton remove = new JFXButton("Remove");
         remove.setStyle("-fx-background-color: #ff0000; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius:0;");
         remove.setOnAction(event -> {

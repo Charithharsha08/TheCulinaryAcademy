@@ -15,5 +15,5 @@ public interface PlacePaymentBO extends SuperBo {
 
     CourseDTO getCourse(String selectedCourseDescription);
 
-    boolean placePayment(StudentCourseDetailDTO studentCourseDetailDTO, PaymentDTO paymentDTO);
+    void placePayment(StudentCourseDetailDTO studentCourseDetailDTO, PaymentDTO paymentDTO);
 }

@@ -2,6 +2,7 @@ package lk.ijse.managementSystem.dao.custom.impl;
 
 import lk.ijse.managementSystem.dao.custom.StudentCourseDetailDAO;
 import lk.ijse.managementSystem.entity.StudentCourseDetail;
+import org.hibernate.Session;
 
 import java.util.List;
 
@@ -34,5 +35,10 @@ public class StudentCourseDetailDAOImpl implements StudentCourseDetailDAO {
     @Override
     public StudentCourseDetail search(String id) throws Exception {
         return null;
+    }
+
+    @Override
+    public void addTransaction(Session session, StudentCourseDetail obj) {
+        session.save(obj);
     }
 }
