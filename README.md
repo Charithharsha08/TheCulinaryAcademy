@@ -24,7 +24,7 @@ TheCulinaryAcademy
 ├── src/main/java  
 │   ├── model/         # 🍕 Entity classes  
 │   ├── dao/           # 📦 Data Access Objects  
-│   ├── service/       # 🔧 Business logic layer  
+│   ├── bo/            # 🔧 Business logic layer  
 │   ├── controller/    # 🎮 Application controllers  
 │   ├── util/          # ⚙️ Utility classes  
 │  
