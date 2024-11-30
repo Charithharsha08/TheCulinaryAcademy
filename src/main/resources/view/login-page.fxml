@@ -22,7 +22,7 @@
       </ImageView>
       <Pane layoutX="55.0" layoutY="85.0" prefHeight="601.0" prefWidth="501.0" styleClass="rectangle" stylesheets="@../style/style.css">
          <children>
-            <JFXTextField fx:id="txtUserName" focusColor="WHITE" labelFloat="true" layoutX="68.0" layoutY="179.0" onAction="#txtUserNameOnAction" onKeyReleased="#OnKeyReleaserUsername" prefHeight="46.0" prefWidth="367.0" promptText="User Name :" unFocusColor="#f2e9e9">
+            <JFXTextField fx:id="txtUserName" focusColor="WHITE" labelFloat="true" layoutX="68.0" layoutY="179.0" onAction="#txtUserNameOnAction" onKeyReleased="#OnKeyReleaserUsername" prefHeight="46.0" prefWidth="367.0" promptText="User Name :" styleClass="text-field" stylesheets="@../style/style.css" unFocusColor="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -42,7 +42,7 @@
                   <Font name="Arial Black" size="20.0" />
                </font>
             </JFXButton>
-            <JFXPasswordField fx:id="txtPassword" focusColor="WHITE" labelFloat="true" layoutX="68.0" layoutY="282.0" onAction="#txtPasswordOnAction" prefHeight="46.0" prefWidth="368.0" promptText="Password :" unFocusColor="WHITE">
+            <JFXPasswordField fx:id="txtPassword" focusColor="WHITE" labelFloat="true" layoutX="68.0" layoutY="282.0" onAction="#txtPasswordOnAction" prefHeight="46.0" prefWidth="368.0" promptText="Password :" styleClass="text-field" stylesheets="@../style/style.css" unFocusColor="WHITE">
                <font>
                   <Font name="Times New Roman Bold" size="18.0" />
                </font>
