@@ -218,7 +218,8 @@ public class PaymentManageController {
             new Alert(Alert.AlertType.INFORMATION, "Payment Done Successfully").show();
 */
             StudentCourseDetailDTO studentCourseDetail = new StudentCourseDetailDTO(1, currentDate, selectedStudent, selectedCourse);
-            PaymentDTO paymentDTO = new PaymentDTO(1, cmbPaymentType.getValue(), currentTimestamp, Double.parseDouble(txtAmount.getText()), total, studentCourseDetail);
+            double amount = selectedCourse.getPrice() - Double.parseDouble(txtAmount.getText());
+            PaymentDTO paymentDTO = new PaymentDTO(1, cmbPaymentType.getValue(), currentTimestamp, amount, total, studentCourseDetail);
              placePaymentBO.placePayment(studentCourseDetail,paymentDTO);
         }
 
