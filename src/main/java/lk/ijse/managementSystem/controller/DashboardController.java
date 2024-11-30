@@ -50,7 +50,7 @@ public class DashboardController {
     }
 
     private void checkAvailability() {
-        if (LoginFormController.user.getJobRole().equals( "USER")) {
+        if (!LoginFormController.user.getJobRole().equals( "USER")) {
             btnPayment.setDisable(false);
             btnAdmin.setDisable(false);
         } else {

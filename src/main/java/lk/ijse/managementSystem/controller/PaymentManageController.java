@@ -228,7 +228,7 @@ public class PaymentManageController {
     void btncreateNewCustomerOnAction(ActionEvent event) {
         Parent rootNode = null;
         try {
-            rootNode = FXMLLoader.load(this.getClass().getResource("/view/register-form.fxml"));
+            rootNode = FXMLLoader.load(this.getClass().getResource("/view/student-form.fxml"));
         } catch (IOException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
 

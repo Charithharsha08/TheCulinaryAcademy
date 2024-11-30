@@ -35,21 +35,21 @@ public class HomePageController {
     }
 
     private void setCounts() {
-//        Session session = SessionFactoryConfig.getInstance().getSession();
-//        try {
-//
-//            studentList = session.createQuery("FROM Student", Student.class).getResultList();
-//             paymentList = session.createQuery("FROM Payment", Payment.class).getResultList();
-//             programList = session.createQuery("FROM Course", Course.class).getResultList();
-//             userList = session.createQuery("FROM User", User.class).getResultList();
-//            lblStudentCount.setText(String.valueOf(studentList.size()));
-//            lblPaymentCount.setText(String.valueOf(paymentList.size()));
-//            lblCourseCount.setText(String.valueOf(programList.size()));
-//            lblUsersCount.setText(String.valueOf(userList.size()));
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            new Alert(Alert.AlertType.ERROR, "Error: " + e.getMessage()).showAndWait();
-//        }
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        try {
+
+            studentList = session.createQuery("FROM Student", Student.class).getResultList();
+             paymentList = session.createQuery("FROM Payment", Payment.class).getResultList();
+             programList = session.createQuery("FROM Course", Course.class).getResultList();
+             userList = session.createQuery("FROM User", User.class).getResultList();
+            lblStudentCount.setText(String.valueOf(studentList.size()));
+            lblPaymentCount.setText(String.valueOf(paymentList.size()));
+            lblCourseCount.setText(String.valueOf(programList.size()));
+            lblUsersCount.setText(String.valueOf(userList.size()));
+        }catch (Exception e){
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Some Active Counts are Are Empty Please Check").showAndWait();
+        }
 
 
 
